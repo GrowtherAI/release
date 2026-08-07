@@ -25,7 +25,8 @@ C5 ships as **one file**. You download it and run it. There is nothing else to i
   they are doing it, and what it costs.
 - **Set the rules.** You decide which tools your agents may use and when they must stop
   and ask you first.
-- **Keep it private.** Your work stays on your machine, locked with strong encryption.
+- **Keep it private.** Your work stays on your machine, stored encrypted — see
+  [Local encryption](/c5/security/encryption) for what that does and does not cover.
 
 ## Who C5 is for
 

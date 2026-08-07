@@ -43,9 +43,6 @@ If you spot a change, look at what you did around that date.
 C5 learns from how you use it. As it sees more of your work, it gets better at it. The
 Analytics charts are where you watch that happen.
 
-This is why the numbers usually improve on their own in the first few weeks. You are not
-imagining it.
-
 If you connect to [Mothership](/c5/mothership/overview), your setup also benefits from
 what works well across the whole Growther community, not just your own history.
 

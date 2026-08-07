@@ -27,7 +27,6 @@ growther
 | `GROWTHER_HOME`            | Where C5 keeps all your data.                    | `~/.growther`            |
 | `PORT`                     | Which port the C5 server listens on.             | `4299`                   |
 | `GROWTHER_CHANNEL`         | Which releases you get: stable, beta, or dev.    | `stable`                 |
-| `GROWTHER_MOTHERSHIP_URL`  | The update server C5 talks to.                   | `https://api.growther.ai` |
 | `GROWTHER_NO_SELF_INSTALL` | Set to `1` to run the program where it sits.     | off                      |
 | `GROWTHER_NO_MODIFY_PATH`  | Set to `1` so C5 never edits your shell files.   | off                      |
 
