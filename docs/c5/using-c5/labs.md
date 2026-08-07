@@ -27,7 +27,7 @@ workshop without stopping the work happening next door.
 | **Skills**     | Specific abilities your agents can use.                            |
 | **Variants**   | Different versions of a setup, so you can compare them.            |
 | **Experiments**| Structured tests that compare options fairly.                      |
-| **Evolution**  | A record of what improved over time, and what it replaced.         |
+| **Evolution**  | A record of what improved over time.                               |
 
 ## Recipes
 
