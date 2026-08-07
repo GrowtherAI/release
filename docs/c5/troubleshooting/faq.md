@@ -51,7 +51,9 @@ That is the permission system protecting you. You control how much it asks — s
 
 ### Can I stop it mid-task?
 
-Yes. Click Stop and it pauses immediately. Nothing half-finished is saved as a result.
+Yes. Click Stop and it stops right away. Stop is a brake, not an undo — anything already
+done stays done: a file that was written is still written, an email that was sent is
+still sent. See [Chat](/c5/using-c5/chat).
 
 ### Where do my finished files go?
 
@@ -94,7 +96,10 @@ BitLocker on Windows, LUKS on Linux. That is the tool that protects a lost lapto
 
 ### Can Growther.ai see my work?
 
-No. It never leaves your machine.
+No — your prompts, files, and results never leave your computer. If you connect to
+Mothership, what is shared is limited to measurements — the full list is at
+[Privacy](/c5/mothership/privacy).
+Never connect, and nothing leaves at all.
 
 ### Can I get my data out?
 
