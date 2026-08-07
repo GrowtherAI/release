@@ -50,8 +50,8 @@ A workspace can sign finished work. A signature is proof of two things:
 - **It came from you**, from this workspace.
 - **It has not been changed** since you signed it.
 
-If even one character changes afterwards, the signature no longer matches, and anyone
-checking can tell.
+A signed deliverable carries proof of where it came from. If it is altered afterwards,
+that proof no longer checks out, and the person you sent it to can tell.
 
 This matters when you deliver work to a client who needs to trust where it came from.
 
@@ -61,8 +61,7 @@ This matters when you deliver work to a client who needs to trust where it came 
 2. Choose **Sign**.
 3. C5 signs it with the workspace's identity.
 
-The signature travels with the file. Whoever receives it can verify it without needing
-access to your C5.
+Whoever receives it can verify it without needing access to your C5.
 
 ## Keeping workspaces tidy
 
