@@ -1,0 +1,91 @@
+---
+title: Chat
+description: Talk to your agents, hand off work, and share files.
+order: 2
+---
+
+# Chat
+
+Chat is where you tell C5 what you need. You type in plain words. C5 figures out the
+rest.
+
+## Asking for something
+
+Type what you want and press enter. You do not need special words or a set format.
+These all work:
+
+> Summarize these three reports and tell me where they disagree.
+
+> Find every place in my project that still uses the old company name.
+
+> Draft a reply to this email. Keep it short and friendly.
+
+C5 reads your request, makes a plan, and starts working. You will see the plan before
+the work begins, so you always know what is about to happen.
+
+## Watching the work
+
+As your agents work, Chat shows you what they are doing. You will see:
+
+- The steps in the plan, and which one is happening now
+- Each tool the agent uses, and what it got back
+- Any question the agent needs you to answer
+
+Nothing is hidden. If you ever wonder why C5 did something, the answer is right there in
+the conversation.
+
+## Sharing files
+
+You can attach files to a message. Drag them onto the chat box or click the paperclip.
+
+C5 can read most common file types — documents, spreadsheets, PDFs, images, code, and
+plain text. Once a file is attached, you can ask questions about it or ask for changes.
+
+> **Tip**
+> Attach the file first, then ask your question. That way the agent has everything it
+> needs from the start.
+
+## Stopping work
+
+If an agent is heading in the wrong direction, you can stop it. Click **Stop** and it
+stops taking new steps right away.
+
+Stop is a brake, not an undo. Anything already done stays done — a file that was written
+is still written, an email that was sent is still sent. If a step needs reversing, ask
+for that as its own task.
+
+You can then correct course and start again. Just say what was wrong.
+
+## When C5 asks first
+
+Some actions are risky — deleting files, spending money, sending things outside your
+computer. C5 stops and asks you before it does any of them.
+
+You will see a clear message telling you exactly what the agent wants to do. You can
+allow it once, allow it every time, or say no.
+
+You control where that line sits. See [Permissions](/c5/security/permissions).
+
+## Picking up where you left off
+
+Chats are saved. Close C5, come back tomorrow, and your conversation is still there with
+all its history. Agents remember what you talked about.
+
+If your computer restarts or the power goes out in the middle of a job, C5 picks the work
+back up when it starts again. You do not lose your place.
+
+## Getting better results
+
+A few habits make a big difference:
+
+- **Say what "done" looks like.** "A one-page summary with three bullet points" beats
+  "summarize this."
+- **Give it the files.** Attach what you have instead of describing it.
+- **Say what to avoid.** "Do not change anything in the test folder" saves you a cleanup.
+- **Start small.** Try a small version first, see how it goes, then ask for the big one.
+
+## Where to go next
+
+- [Productivity](/c5/using-c5/productivity) — watch longer jobs on a board.
+- [Schedules](/c5/using-c5/schedules) — have this happen on its own every week.
+- [Library](/c5/using-c5/library) — find the files your agents made.

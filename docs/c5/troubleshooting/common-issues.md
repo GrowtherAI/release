@@ -1,0 +1,161 @@
+---
+title: Common issues
+description: Problems people actually hit, and how to fix them.
+order: 2
+---
+
+# Common issues
+
+Start here when something is wrong. If your problem is not listed, run the checkup:
+
+```bash
+growther doctor
+```
+
+It checks your whole setup and usually names the cause. See
+[Running doctor](/c5/cli/doctor).
+
+## Installing and starting
+
+### "growther: command not found"
+
+Your terminal cannot find C5 yet.
+
+Close the terminal window and open a new one, then try again. Shells only pick up PATH
+changes in new sessions.
+
+If that does not work, reinstall — see
+[Installation](/c5/getting-started/installation).
+
+### C5 will not start
+
+Check whether it is already running:
+
+```bash
+growther status
+```
+
+If it says running but you cannot reach it, stop and start it:
+
+```bash
+growther stop
+growther
+```
+
+### "Port already in use"
+
+Something else on your computer is using port 4299. Use a different one:
+
+```bash
+PORT=5000 growther
+```
+
+### The page will not load in my browser
+
+Confirm C5 is running with `growther status`, then go to `http://localhost:4299`
+directly. If you changed the port, use that number instead.
+
+## Models
+
+### "No model configured"
+
+You have not connected a provider yet. Go to **Settings → LLMs** and add one. See
+[Model providers](/c5/configuration/model-providers).
+
+### "Invalid API key"
+
+Nearly always a copy-paste problem. Copy the key again, watching for a trailing space.
+If it still fails, make a new key with the provider.
+
+### "Rate limit reached"
+
+You are asking your provider for more than your plan allows. C5 slows down and retries by
+itself, so this usually resolves.
+
+If it keeps happening, raise your limit with the provider or route some work to a
+different model.
+
+### Results got worse
+
+Check what changed. [Analytics](/c5/using-c5/analytics) shows quality over time — find
+the day it dropped and think about what you changed then. A model switch is the most
+common cause.
+
+## Tasks
+
+### A task is stuck as "Blocked"
+
+Open it. Blocked almost always means it is waiting for you to approve something, or it
+hit a limit.
+
+### A task keeps failing
+
+Open it and read the error. The usual causes:
+
+- A file it needed moved or was renamed
+- An expired key
+- A budget limit reached
+- A website or service it needed is down
+
+Fix the cause, then click **Retry**.
+
+### Everything is queued and nothing starts
+
+Open [Monitor](/c5/using-c5/monitor) → **Queueing**.
+
+If nothing is moving, check that you have a working model provider, that you have not hit
+a budget limit, and that no task is waiting on your approval.
+
+### A schedule did not run
+
+Schedules need C5 running. If your computer was asleep or off, the run was missed — C5
+catches up when it wakes.
+
+If C5 was running and it still did not fire, open the schedule's history for the error.
+
+## Performance
+
+### Everything is slow
+
+Check [Monitor](/c5/using-c5/monitor) → **Health**. If your fleet is large, your computer
+may be overloaded — try running fewer agents. See [Your agent fleet](/c5/agents/fleet).
+
+### Running out of disk space
+
+Open **Monitor → Database** to see what is using room. Shortening how long history is
+kept is the biggest lever. See [Backups and recovery](/c5/security/backups).
+
+## Costs
+
+### I spent more than expected
+
+Open [Ops](/c5/using-c5/ops) and look at spending by task and by model.
+
+The usual culprits are a frequent schedule, a large fleet, or an expensive model doing
+simple work. Set a budget so it cannot happen again.
+
+## Serious problems
+
+### "Integrity check failed"
+
+> **Danger**
+> The program on disk is not the one Growther.ai signed. Stop using it, reinstall from
+> the official installer, and if it fails again ask for help before running it. See
+> [Verifying releases](/c5/security/verifying-releases).
+
+### An update broke something
+
+Go back to the previous version:
+
+```bash
+growther rollback
+```
+
+Then tell us what happened — see [Getting help](/c5/troubleshooting/getting-help).
+
+### I think I lost data
+
+Do not keep working in that install — that can overwrite what is recoverable.
+
+C5 keeps automatic backups. See [Backups and recovery](/c5/security/backups) for how to
+restore, and test the restore into a separate folder first.

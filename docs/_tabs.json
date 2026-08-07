@@ -1,0 +1,25 @@
+[
+  {
+    "label": "Docs",
+    "path": "/c5/getting-started/introduction",
+    "match": [
+      "getting-started",
+      "configuration",
+      "mothership",
+      "security",
+      "troubleshooting"
+    ]
+  },
+  {
+    "label": "Guides",
+    "path": "/c5/using-c5/overview",
+    "match": ["using-c5", "agents", "tools"]
+  },
+  { "label": "CLI", "path": "/c5/cli/commands", "match": ["cli"] },
+  {
+    "label": "Changelog",
+    "path": "https://github.com/growtherai/release/releases",
+    "match": [],
+    "external": true
+  }
+]

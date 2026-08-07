@@ -1,0 +1,88 @@
+---
+title: Verifying releases
+description: How C5 proves the version you are running is genuine.
+order: 4
+---
+
+# Verifying releases
+
+Every copy of C5 is checked before it runs. This page explains how, and what to do if a
+check ever fails.
+
+## The problem this solves
+
+Software gets downloaded over networks you do not control. Somewhere between the
+publisher and your computer, a file could be swapped or altered.
+
+You want to know that the program you are about to run is exactly the one Growther.ai
+built — not a modified copy.
+
+## Two checks
+
+### A fingerprint
+
+Every release is published with a **SHA-256** — a short string calculated from the file's
+contents. Change even one byte and the string changes completely.
+
+When you install or update, C5 calculates the fingerprint of what it just downloaded and
+compares it to the published one. If they differ, the install stops and nothing is
+written.
+
+### A signature
+
+Every release also ships with a **signed build manifest** — a small record of how the
+build was made, stamped in a way only Growther.ai can produce. Growther.ai holds a
+private key; the stamp can be checked by anyone but created by no one else. So a valid
+stamp proves the build came from Growther.ai and has not been altered since.
+
+## Where the checking happens
+
+| When                | What is checked                                              |
+| ------------------- | ------------------------------------------------------------ |
+| **Installing**      | The SHA-256 of the download. A mismatch stops the install.    |
+| **Updating**        | The signature and the file's hash, before anything replaces your copy. |
+| **On demand**       | `growther doctor` checks the signature and the program file.  |
+
+The first two happen on their own — you do not have to do anything. Together they mean a
+tampered file cannot get onto your machine through the installer or the updater.
+
+> **Tip**
+> To confirm at any point that the copy on disk is still the one that was installed, run
+> `growther doctor`. Its integrity check is exactly for this, and it is worth running
+> after anything unusual — a crash during an update, a restore from backup, or a machine
+> someone else has had access to.
+
+## Checking for yourself
+
+Run the checkup:
+
+```bash
+growther doctor
+```
+
+The integrity line reports whether your copy verifies. See
+[Running doctor](/c5/cli/doctor).
+
+## If a check fails
+
+> **Danger**
+> A failed integrity check means the program on disk is not the one Growther.ai signed.
+> Do not ignore it and do not work around it.
+
+What to do:
+
+1. **Stop using that copy.**
+2. **Reinstall from the official installer** — see
+   [Installation](/c5/getting-started/installation).
+3. **If it fails again, ask for help** before running it. See
+   [Getting help](/c5/troubleshooting/getting-help).
+
+Most real-world causes are dull — a download that got truncated, a disk error, an
+antivirus tool that modified the file. But the check cannot tell dull from serious, so it
+treats every failure the same way. That is the correct behavior.
+
+## Where releases come from
+
+Published releases and their fingerprints live in the public
+[release repository](https://github.com/growtherai/release). Every version is listed with
+its digest, so you can check any file by hand if you want to.
