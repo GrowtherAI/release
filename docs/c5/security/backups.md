@@ -13,8 +13,8 @@ C5 backs itself up. You should still keep your own copy.
 C5 looks after its own storage:
 
 - **Automatic backups** on a schedule you can change
-- **Self-repair** when storage gets damaged
-- **Self-recovery** after a crash or a power cut
+- **Self-repair** for many kinds of storage damage
+- **Self-recovery** after most crashes and power cuts
 
 If your computer loses power mid-task, C5 comes back knowing what it was doing and picks
 up from there. You do not lose your place.

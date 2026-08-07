@@ -44,8 +44,9 @@ Beyond asking you, C5 has guards that work on their own:
 
 - **A tool that keeps failing gets switched off** for a while, instead of retrying
   forever. This stops one broken thing from burning your budget.
-- **Information leaving your computer is checked** so sensitive data does not go out by
-  accident.
+- **Information leaving your computer is checked** as a backstop against an accidental
+  leak. It catches common patterns, not everything — do not rely on it to notice a
+  secret.
 - **Everything is recorded**, so you can look back at what happened.
 
 ## Adding more tools

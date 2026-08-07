@@ -50,8 +50,9 @@ operating system protects screen access and input control by design.
 - **Stop any time.** Click **Stop** and it ends. Note that moving your own mouse does
   *not* interrupt it — the agent and you share one pointer, so use the Stop button rather
   than trying to wrestle it.
-- **Risky clicks still ask.** Anything that sends, deletes, publishes, or pays stops for
-  your approval first.
+- **Risky clicks ask where C5 can tell.** Actions that look like sending, deleting,
+  publishing, or paying stop for your approval first. C5 is reading the screen, so it
+  cannot recognize all of them.
 
 > **Danger**
 > Never let an agent type a password, a card number, or a security code on your behalf.

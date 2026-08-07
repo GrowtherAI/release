@@ -27,7 +27,7 @@ These are the exact checks it runs:
 | **Build manifest**     | The record of how this build was made is present.        |
 | **Manifest signature** | That record really was signed by Growther.ai.            |
 | **Binary integrity**   | The program file matches what was installed.             |
-| **SOC2 change-mgmt**   | The change-control checks used for compliance.            |
+| **Change control**     | Internal build and release change-control checks.        |
 | **Databases**          | Your data files are present where they should be.        |
 | **Mothership**         | C5 can reach the cloud service, if you use it.           |
 
