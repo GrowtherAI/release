@@ -29,11 +29,12 @@ Connecting shares a limited set of operational information:
 
 - **Which version you run**, so updates can be managed.
 - **Your license state**, so your plan works.
-- **Measurements of how well things worked** — success rates, timings, error counts.
-- **Which general approaches performed well**, so proven patterns can be shared back.
+- **Measurements of how well things worked** — how often work succeeded, how long it
+  took, how often something failed.
+- **Signals about what is working well**, so the network can improve.
 
 The rule of thumb is: **measurements, not your content.** That a task succeeded, how long
-it took, and how often a kind of approach works — not what the task was about or what it
+it took, and how the system is performing — not what the task was about or what it
 produced.
 
 ## An example
