@@ -38,6 +38,7 @@ activate.
 | `growther update`   | Get the newest version.                                         |
 | `growther rollback` | Go back to the version you had before.                          |
 | `growther doctor`   | Check your setup and report anything wrong.                     |
+| `growther verify`  | Prove a file really came from us. Works offline.                 |
 | `growther uninstall`| Remove C5 from your computer.                                   |
 | `growther version`  | Print which version you have.                                   |
 | `growther help`     | Show the list of commands.                                      |
@@ -96,6 +97,39 @@ growther doctor
 ```
 
 See [Running doctor](/c5/cli/doctor) for what it checks.
+
+### `growther verify`
+
+Checks that a file really is the one we built, and that nobody has changed it since.
+Useful if you downloaded C5 somewhere other than our site, or if you simply want to
+confirm the copy you are running is untouched.
+
+```bash
+growther verify            # check the copy of C5 you are running
+growther verify ./growther # check a specific file you downloaded
+```
+
+It works **offline**. Nothing is sent anywhere and nothing needs downloading: the key
+used to check the signature is built into C5 itself.
+
+What the answers mean:
+
+| You see                         | What it means                                          |
+| ------------------------------- | ------------------------------------------------------ |
+| ✓ signature is valid            | The record of how this was built really came from us.  |
+| ✓ contents match                | The file has not been changed since we built it.       |
+| ✗ has been altered              | Do not run it. Download it again from growther.ai.     |
+| ✗ signature is INVALID          | Do not run it. Download it again from growther.ai.     |
+| ? unsigned / no key / no record | Cannot tell either way — see below.                    |
+
+A **?** is not a pass. It means the check could not be completed — usually because you
+are running a development build, or because the file has no build record next to it.
+Treat it as "unknown", not "fine".
+
+If you are writing a script, the exit codes are `0` verified, `1` failed or altered, and
+`2` could not be checked.
+
+See [Verifying releases](/c5/security/verifying-releases) for the whole trust story.
 
 ### `growther uninstall`
 

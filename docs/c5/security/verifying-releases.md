@@ -54,14 +54,29 @@ tampered file cannot get onto your machine through the installer or the updater.
 
 ## Checking for yourself
 
-Run the checkup:
+To check one specific file — the copy you are running, or something you just
+downloaded — use:
+
+```bash
+growther verify            # the copy of C5 you are running
+growther verify ./growther # a file you downloaded
+```
+
+This works **offline**. Nothing is sent anywhere and there is nothing to download
+first: the key used to check the signature is built into C5 itself. See
+[Commands](/c5/cli/commands) for what each answer means.
+
+A **?** answer is not a pass — it means the check could not be completed. Treat it
+as "unknown", not "fine".
+
+For a broader checkup of your whole setup, including the same integrity check
+alongside licensing and storage:
 
 ```bash
 growther doctor
 ```
 
-The integrity line reports whether your copy verifies. See
-[Running doctor](/c5/cli/doctor).
+See [Running doctor](/c5/cli/doctor).
 
 ## If a check fails
 
