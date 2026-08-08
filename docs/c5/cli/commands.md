@@ -121,10 +121,20 @@ What the answers mean:
 | ✗ has been altered              | Do not run it. Download it again from growther.ai.     |
 | ✗ signature is INVALID          | Do not run it. Download it again from growther.ai.     |
 | ? unsigned / no key / no record | Cannot tell either way — see below.                    |
+| ? this is a release archive     | Extract it, then verify the program inside.            |
 
 A **?** is not a pass. It means the check could not be completed — usually because you
-are running a development build, or because the file has no build record next to it.
+are running a development build, because the file has no build record next to it, or
+because you pointed it at a downloaded `.tar.gz`/`.zip` rather than the program itself.
 Treat it as "unknown", not "fine".
+
+Checking a downloaded archive tells you its build record is genuine but says nothing
+about the bytes inside it, so extract it first and verify the program:
+
+```bash
+tar -xzf growther-c5-macos-arm64.tar.gz
+growther verify ./growther-c5-macos-arm64
+```
 
 If you are writing a script, the exit codes are `0` verified, `1` failed or altered, and
 `2` could not be checked.
