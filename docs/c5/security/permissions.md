@@ -18,7 +18,7 @@ Think of it as a ladder, from safest to most powerful:
 | Level          | What it covers                                          | Default   |
 | -------------- | ------------------------------------------------------- | --------- |
 | **Read**       | Looking at files and pages. Changes nothing.            | Allowed   |
-| **Write**      | Creating and editing files in allowed folders.          | Allowed   |
+| **Write**      | Creating and editing files.                             | Asks you  |
 | **Run**        | Running commands on your computer.                      | Asks you  |
 | **Send**       | Sending anything off your machine — email, posts, calls.| Asks you  |
 | **Delete**     | Removing files or data permanently.                     | Asks you  |
@@ -27,6 +27,16 @@ Think of it as a ladder, from safest to most powerful:
 
 Reading is safe: worst case, an agent wastes time. Deleting and sending are not: worst
 case, something is gone or something private went somewhere public.
+
+> **Note**
+> Writing asks you by default, wherever the file is. The one way a write happens without
+> asking is if you have listed the folder yourself under **Settings → Extensions**, in the
+> write-allowed paths — that list is empty until you add to it. An orchestrated run you
+> have given filesystem autonomy can also write inside its own task workspace without
+> asking, and only there.
+>
+> **Settings → Locations** is a different setting and does not grant anything. See the
+> warning further down this page.
 
 ## When an agent asks
 
