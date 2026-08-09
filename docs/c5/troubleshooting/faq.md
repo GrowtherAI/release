@@ -119,6 +119,33 @@ time.
 Get one from [growther.ai](https://growther.ai). Then run `growther activate` on each
 computer to pair it — see [Connecting](/c5/mothership/connecting).
 
+### Why does C5 check in with the license service?
+
+C5 holds a short-lived licence file and renews it quietly in the background, well
+before it runs out. It is a routine check-in, not a re-purchase, and you do not
+have to do anything.
+
+Renewing is also how a change reaches you: buy more seats, add a feature, or
+extend your term, and it appears without reinstalling anything.
+
+### C5 needs internet just to stay licensed?
+
+Only briefly, and only now and then. The licence file lasts long enough to cover
+ordinary time offline — travel, a flaky connection, a laptop shut for a week.
+Nothing stops the moment you disconnect.
+
+If a machine will be offline for a long stretch, or permanently, ask us about an
+air-gapped licence instead.
+
+### Does my license expire soon? It shows a date only a couple of weeks away
+
+It should not, and if you see one, tell us.
+
+There are two different dates involved, and only one of them concerns you: **when
+your access ends**, which is the date the app and the admin console show. The
+other is an internal renewal deadline for the licence file itself, a couple of
+weeks out and refreshed continuously. You should never be shown that one.
+
 ## Still stuck?
 
 Try [Common issues](/c5/troubleshooting/common-issues), or
