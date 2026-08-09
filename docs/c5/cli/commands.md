@@ -35,6 +35,7 @@ activate.
 | `growther status`   | Say whether C5 is running, and how it is set to start.          |
 | `growther service`  | Manage starting C5 automatically. See below.                    |
 | `growther activate` | Pair this computer with your license.                           |
+| `growther rekey`    | Give this computer a new key, keeping the same license.         |
 | `growther update`   | Get the newest version.                                         |
 | `growther rollback` | Go back to the version you had before.                          |
 | `growther doctor`   | Check your setup and report anything wrong.                     |
@@ -75,6 +76,34 @@ where you confirm it. You only do this once per computer.
 ```bash
 growther activate
 ```
+
+### `growther rekey`
+
+Gives this computer a **new key** while keeping the **same** license and the same
+history. Your data, settings and anything you have shared stay exactly where they
+are — only the key changes.
+
+C5 does this on its own every few months, so most people never type it. Reach for
+it when C5 says the key it has is not the one your license expects:
+
+```bash
+growther rekey
+```
+
+If the key on this computer is gone or is no longer the right one — after
+restoring from a backup, say, or moving to a new disk — add `--recover`:
+
+```bash
+growther rekey --recover
+```
+
+Recovery asks you to confirm in your browser, and it asks you to have signed in
+**within the last 15 minutes**. If you get "step-up re-authentication is
+required", sign out of the license portal, sign back in, and run the command
+again straight away.
+
+Do not run `growther activate` to fix a key problem. Activate creates a *new*
+deployment; rekey keeps the one you already have.
 
 ### `growther update`
 

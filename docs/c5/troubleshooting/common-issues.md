@@ -42,6 +42,39 @@ growther stop
 growther
 ```
 
+### "BOOT ABORTED: CRITICAL LICENSE FAILURE"
+
+C5 stops rather than run unlicensed, so it exits instead of staying up in a
+half-working state. Read the line under the heading — it says which case you are
+in.
+
+**"bound to a different deployment key"** — your licence is fine; the key on this
+computer is not the one it expects. This happens after restoring from a backup,
+cloning a machine, or moving to a new disk. Give this computer a new key, keeping
+the same licence:
+
+```bash
+growther rekey
+```
+
+If that reports the key is gone or is not the bound one, use recovery, which
+confirms in your browser:
+
+```bash
+growther rekey --recover
+```
+
+**"GROWTHER_C5_LICENSE_SEED is missing"** — no licence file. If this computer was
+never paired, run `growther activate`. If it *was* paired and the file has gone,
+`growther rekey --recover` restores it without creating a second deployment.
+
+Do not run `growther activate` to fix a key problem on a computer that is already
+paired. Activate creates a **new** deployment and leaves the old one stranded;
+rekey keeps the one you have, along with its history.
+
+Not sure which you are looking at? `growther doctor` reports the licence and key
+state in plain terms.
+
 ### "Port already in use"
 
 Something else on your computer is using port 4299. Use a different one:
