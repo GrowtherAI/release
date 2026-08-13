@@ -83,8 +83,14 @@ C5 quietly keeps a running summary of the earlier part and holds the most recent
 exchanges word for word, so the agent still knows what you originally asked about forty
 questions ago.
 
-This happens in the background, after a reply is sent — it never makes you wait. If you
-would rather it did not, turn off context compaction in Settings.
+This happens in the background, after a reply is sent — it never makes you wait.
+
+You will see it when it does. A small **Condensing** badge appears in the chat header
+while it runs, and hovering it explains what is happening. It also leaves a line in the
+activity feed afterwards, alongside the tool calls, so you can look back and see when
+your conversation was condensed rather than wondering.
+
+If you would rather it did not happen at all, turn off context compaction in Settings.
 
 ## Getting better results
 
