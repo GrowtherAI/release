@@ -69,10 +69,22 @@ You control where that line sits. See [Permissions](/c5/security/permissions).
 ## Picking up where you left off
 
 Chats are saved. Close C5, come back tomorrow, and your conversation is still there with
-all its history. Agents remember what you talked about.
+all its history. Agents remember what you talked about — not just the transcript on your
+screen, but the context behind it. Restart your computer, update C5, switch which model
+you are using mid-conversation: the thread carries on where it left off.
 
 If your computer restarts or the power goes out in the middle of a job, C5 picks the work
 back up when it starts again. You do not lose your place.
+
+### Long conversations
+
+You can keep digging into one subject for as long as you like. Once a thread gets long,
+C5 quietly keeps a running summary of the earlier part and holds the most recent
+exchanges word for word, so the agent still knows what you originally asked about forty
+questions ago.
+
+This happens in the background, after a reply is sent — it never makes you wait. If you
+would rather it did not, turn off context compaction in Settings.
 
 ## Getting better results
 
