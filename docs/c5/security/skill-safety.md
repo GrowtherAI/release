@@ -58,6 +58,27 @@ Every included skill is scanned and approved before release, and the release bui
 if the shipped skill list, its database records, and the files on disk disagree with each
 other. A removed skill cannot quietly return in a later build.
 
+Three further rules decide what stays in.
+
+**No skill may coordinate other agents.** A skill that tells an agent to recruit other
+agents, or to copy itself somewhere another agent will read it, is refused. One
+compromised instruction should affect one run — not spread. For the same reason, skills
+that fan out work with no limit on how many agents they start are not included, and no
+shipped skill weakens the platform's own limit on how deeply agents may nest.
+
+**No skill may grant trust to another skill.** Nothing in the library can mark another
+skill as safe, add it to an allowlist, or suppress a security finding. A tool that
+automates trust decisions becomes the most valuable thing to compromise, and the checks
+that matter here — does this instruct the agent to fetch and obey remote content? — are
+not the kind an antivirus verdict can answer.
+
+**Provenance is part of the review.** Skills are judged by who wrote them, not only by
+what the file says. When one author's skill is removed for an unsafe pattern, their other
+skills are re-examined too. Skills written by an agent rather than a person are not
+shipped, however reasonable they read: an agent writing instructions for future agents,
+from material it encountered in an earlier session, is a path by which something read
+once becomes something obeyed later.
+
 ## What this does not do
 
 Being honest about the limits matters more than the reassurance.
