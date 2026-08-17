@@ -51,6 +51,10 @@ process requires, the rules a certain client expects.
 
 You can turn skills on and off. An agent only uses the ones that are switched on.
 
+Because a skill is instructions your agents follow, every skill is scanned before it can
+be used, and one with a serious finding is switched off automatically. See
+[Skill safety](/c5/security/skill-safety) for what is checked and what is not.
+
 ## Comparing options
 
 When you are not sure which of two approaches is better, do not guess. Set them up as
