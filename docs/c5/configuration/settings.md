@@ -77,13 +77,21 @@ changes, admin actions, attempts C5 blocked, and changes to encryption. C5 remov
 day at a time, and only once the last entry from that day has aged out, so nothing inside your
 window is ever cut short. See [Audit trail](/c5/security/audit-trail).
 
+This slider also covers the **tool decisions** in the same view — each time an agent was allowed
+or refused a tool. Those are tidied on the same nightly pass, but with one difference worth
+knowing:
+
 > **Note**
-> This slider does not govern everything the Audit view shows you. That view also merges in
-> **tool decisions** — each time an agent was allowed or refused a tool — and system
-> notifications. Neither is covered by this setting, neither has a setting of its own, and
-> nothing ages either of them out. So a tool decision from two years ago can sit beside audit
-> entries that stop 90 days back, looking exactly as current. The **Source** column is what
-> tells them apart, and only the audit rows are held to the window you set here.
+> **Tool decisions are never removed sooner than 90 days**, whatever this slider says. They are
+> also what the Analytics tool charts count, and those charts can look back up to 90 days — so if
+> a shorter setting were applied to them, a chart would quietly show less activity than really
+> happened and give you an all-clear nobody measured. Setting this above 90 days keeps them for
+> longer, in step with everything else; setting it below only shortens how long the audit records
+> themselves are kept.
+
+One thing in the Audit view is still not covered: the **system notifications** merged into the
+same list have no retention setting, and nothing ages them out. The **Source** column is what tells
+the three kinds of row apart.
 
 **System Events Retention** covers C5's own operational record: coordinator failovers, gateway
 timeouts, shutdowns, steps that had to be abandoned and requeued, and the adjustments C5 makes
@@ -98,9 +106,9 @@ tell you how the platform itself has been behaving.
 
 Both are cleared out once a day, late in the evening, a few minutes ahead of the nightly
 database backup — so your backups hold the tidied-up version rather than a copy of what you
-asked to delete. They tidy differently: the audit trail goes a whole day at a time, for the
-reason described on the [Audit trail](/c5/security/audit-trail) page, while system events are
-removed one at a time as each passes the cutoff.
+asked to delete. They tidy differently: the audit records go a whole day at a time, for the
+reason described on the [Audit trail](/c5/security/audit-trail) page, while tool decisions and
+system events are removed one at a time as each passes its cutoff.
 
 If C5 is asleep or switched off at that moment, nothing is lost. The next night removes
 everything that was due tonight as well.
