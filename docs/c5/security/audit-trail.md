@@ -30,7 +30,8 @@ Two further records are shown in the same list, so one timeline covers everythin
 Each entry has a time, an actor, what was touched, whether it succeeded, and how serious it
 was. The **Source** column says which of the three records a row came from — the audit trail
 itself, a tool decision, or a notification. That distinction matters more than it looks: only
-the audit rows are covered by the retention setting below, and only they are fingerprinted.
+the audit rows are fingerprinted, and the three are not all kept for the same length of time.
+See [How long it is kept](#how-long-it-is-kept).
 
 Ordinary settings changes are **not** here. Saving a change in most Settings areas does not
 write an audit entry.
@@ -82,15 +83,27 @@ Old records are removed once a day, late in the evening, a few minutes before th
 database backup — so your backups hold the tidied-up version rather than a copy of what you
 asked to delete.
 
+### The other two kinds of row
+
+**Tool decisions** are covered by the same setting, and removed on the same nightly pass — but one
+at a time as each passes the cutoff, rather than a whole day at once. They are not chained, so
+there are no fingerprints to protect and nothing is gained by keeping a day together.
+
+> **Note**
+> **Tool decisions are never removed sooner than 90 days**, whatever the slider says. They are
+> also what the Analytics tool charts count, and those charts can look back up to 90 days. If a
+> shorter setting were applied to them, a chart would quietly show less tool activity than really
+> happened — an all-clear nobody measured — so a floor of 90 days is enforced for this kind of row.
+> Setting the slider above 90 days keeps them longer, in step with everything else.
+
+**System notifications** are not covered. They have no retention setting of their own and nothing
+ages them out, so a notification from two years ago will still be there, looking as current as
+everything around it.
+
 > **Warning**
-> This setting covers the audit rows and nothing else. The **tool decisions** and **system
-> notifications** in the same list are not covered by it, have no retention setting of their
-> own, and nothing ages them out. A tool decision from two years ago will still be there,
-> looking as current as everything around it, on an install set to keep 90 days. The **Source**
-> column is how you tell which is which.
->
-> So "the last 90 days" is true of the audit rows, not of the view. If you are answering a
-> question about what the record covers, answer it per source.
+> So "the last 90 days" is true of the audit rows, not of the whole view. If you are answering a
+> question about what the record covers, answer it per source — the **Source** column is how you
+> tell which is which.
 
 There is a second, separate setting for C5's own operational events. See
 [Settings](/c5/configuration/settings).
