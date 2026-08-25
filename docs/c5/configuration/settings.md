@@ -51,6 +51,11 @@ does well, loosen it.
 
 See [Permissions](/c5/security/permissions).
 
+### Guardrails
+
+Set boundaries on what your agents may do, where they can connect on the web, and what data gets redacted before leaving your computer.
+See [Guardrails](/c5/security/guardrails).
+
 ### Locations
 
 Tell C5 which folders to bring documents in from, and where to put finished work. Point
@@ -60,7 +65,7 @@ expect.
 > **Warning**
 > This is a convenience setting, not a security boundary. It does not stop an agent from
 > reaching other parts of your disk. Use
-> [Permissions](/c5/security/permissions) and Guardrails for that.
+> [Permissions](/c5/security/permissions) and [Guardrails](/c5/security/guardrails) for that.
 
 ## How long C5 keeps things
 
@@ -144,3 +149,10 @@ recorded there — so when a setting matters, note what it was before you change
 
 If C5 will not start at all after a change, see
 [Common issues](/c5/troubleshooting/common-issues).
+
+## Where to go next
+
+- [Config files](/c5/configuration/config-files) — how C5 manages `c5.yaml` on disk.
+- [Model providers](/c5/configuration/model-providers) — connect cloud and local models.
+- [Guardrails](/c5/security/guardrails) — safety limits and network allowlists.
+

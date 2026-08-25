@@ -1,7 +1,7 @@
 ---
 title: Skill safety
 description: How skills are checked before your agents can use them.
-order: 6
+order: 7
 ---
 
 # Skill safety

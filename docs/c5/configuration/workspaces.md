@@ -1,7 +1,7 @@
 ---
 title: Workspaces
 description: Keep separate streams of work apart, and sign finished work.
-order: 3
+order: 4
 ---
 
 # Workspaces
