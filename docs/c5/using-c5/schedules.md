@@ -75,6 +75,30 @@ spending limit that was already used up.
 > Set up an alert so you hear about failures right away instead of finding out later.
 > See [Settings](/c5/configuration/settings).
 
+## ROI Trackers & System Audits
+
+At the top of the Schedules page, C5 includes built-in **ROI Trackers**. These run automated
+audits of your system's productivity, agent performance, and cost savings over regular
+intervals.
+
+### Cadences
+
+| Tracker | When it runs | What it measures |
+| --- | --- | --- |
+| **Weekly** | Every Sunday at midnight | 7-day activity compared to the prior week. |
+| **Monthly** | 1st of every month at midnight | Monthly deliverables, success rates, and cost deltas. |
+| **Quarterly** | 1st of Jan, Apr, Jul, Oct | 3-month efficiency trends and total output. |
+| **Yearly** | January 1st at midnight | Annual executive summary of total tasks and local token savings. |
+
+### How to use them
+
+- **Pause or Resume** — Click **Pause** on any tracker you do not need right now. Pausing keeps your historical numbers intact.
+- **Run & Notify** — Click **Run & Notify** to run an audit immediately and send an executive summary to your in-app notifications.
+- **View Output** — Click **View Notification Output** on any card to read the latest audit payload directly in the panel.
+
+Each report shows your completed tasks, deliverables, agent success rates, tool usage, and
+an estimate of money saved by running models locally for free.
+
 ## Things to watch out for
 
 - **Costs add up.** A schedule that runs every hour runs 720 times a month. Set a budget
@@ -82,3 +106,10 @@ spending limit that was already used up.
 - **Your computer has to be on.** C5 runs on your machine. If it is asleep, the schedule
   waits. C5 will catch up when it wakes.
 - **Start slow.** Run something daily for a week before you move it to hourly.
+
+## Where to go next
+
+- [Budgets & costs](/c5/using-c5/ops) — spending limits and cost tracking.
+- [Analytics](/c5/using-c5/analytics) — charts showing agent quality over time.
+- [Recipes](/c5/using-c5/labs) — save repeating jobs in Labs.
+
