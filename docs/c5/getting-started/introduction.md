@@ -37,6 +37,16 @@ setup instead of someone else's cloud.
 You do not need to be an expert to start. The first task you run can be as simple as a
 sentence.
 
+## Progress you can see
+
+Using C5 is designed to feel rewarding. As you and your agents complete real work, C5 tracks
+your progress and unlocks self-improvement abilities with achievement stars in your
+sidebar.
+
+Hitting milestones unlocks new powers for your agents — like deep analysis on failed jobs
+at 50 tasks, and automated prompt improvements at 100 tasks. See
+[Self-improvement milestones](/c5/using-c5/ops#self-improvement-milestones).
+
 ## Your data stays yours
 
 Everything C5 knows lives in a folder on your computer called `~/.growther`. It is
