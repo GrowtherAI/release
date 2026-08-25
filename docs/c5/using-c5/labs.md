@@ -66,6 +66,12 @@ differences are hard to see by eye but easy to see in a comparison.
 > **Note**
 > Comparisons need a few runs before they mean anything. One good result can be luck.
 
+### Automated promotion
+
+Once your system reaches 100 completed tasks, C5 can automatically promote top-performing
+prompt variants into production using learned reward models. See
+[Self-improvement milestones](/c5/using-c5/ops) for how this milestone unlocks.
+
 ## Should you use Labs?
 
 Not at first. Get comfortable with Chat, Productivity, and Library before you come here.
@@ -75,5 +81,7 @@ improve results rather than just get them.
 
 ## Where to go next
 
+- [Budgets & costs](/c5/using-c5/ops) — spending limits and self-improvement milestones.
 - [Schedules](/c5/using-c5/schedules) — run a recipe automatically.
 - [Analytics](/c5/using-c5/analytics) — see whether a change actually helped.
+

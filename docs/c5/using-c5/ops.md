@@ -58,6 +58,29 @@ task that caused it.
 | **Audit**    | A record of what happened and when.                                 |
 | **Memory**   | What C5 has remembered from your past work.                         |
 
+## Self-improvement milestones
+
+As your agents complete real work, C5 unlocks advanced self-improvement features. These
+are gated behind completed task milestones so they only run once there is enough history
+to be helpful without wasting your budget on early guesses.
+
+When you reach a milestone, a star badge appears in the bottom left of your sidebar:
+
+| Milestone | Completed tasks | Sidebar badge | What it does |
+| --- | --- | --- | --- |
+| **Retrospective Loop** | 50 tasks | **Violet star** | Analyzes failed tasks to suggest new review rules and compare rule similarity. |
+| **Reward Model Promotion** | 100 tasks | **Blue star** | Uses historical data to automatically promote experimental prompt variants when they beat the baseline. |
+
+### Tracking your progress
+
+You can check your progress toward each milestone in **Settings › Budget**:
+
+1. Go to **Settings**.
+2. Open the **Budget** tab.
+3. Look at the **Retrospective Loop** and **Reward Model Promotion** cards to see your current completed task count (e.g. `34/50` or `82/100`).
+
+Once unlocked, you can click either star in the sidebar to review what unlocked, or turn the feature on or off in **Settings › Budget** to manage token usage.
+
 ## Keeping costs down
 
 A few habits help:
@@ -67,3 +90,10 @@ A few habits help:
 - **Be specific.** A clear request takes fewer tries than a vague one.
 - **Check your schedules.** A frequent schedule is usually the biggest line on the bill.
 - **Run models locally** for routine work, and save paid models for the hard parts.
+
+## Where to go next
+
+- [Labs](/c5/using-c5/labs) — recipes, skills, and prompt variants.
+- [Analytics](/c5/using-c5/analytics) — track agent performance over time.
+- [Settings](/c5/configuration/settings) — full configuration map.
+
