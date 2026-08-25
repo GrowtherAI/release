@@ -1,7 +1,7 @@
 ---
 title: Verifying releases
 description: How C5 proves the version you are running is genuine.
-order: 4
+order: 5
 ---
 
 # Verifying releases

@@ -1,7 +1,7 @@
 ---
 title: Data protection
 description: What C5 checks for before anything leaves your machine.
-order: 5
+order: 6
 ---
 
 # Data protection

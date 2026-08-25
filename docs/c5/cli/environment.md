@@ -78,7 +78,7 @@ Everything C5 knows lives in `GROWTHER_HOME` (by default `~/.growther`):
 
 - Your chats, tasks, and their whole history
 - Files your agents made
-- Your settings and API keys
+- Your settings and API keys — see [Config files](/c5/configuration/config-files)
 - Backups
 
 The databases are encrypted, and your key file lives in this same folder — so a copy of

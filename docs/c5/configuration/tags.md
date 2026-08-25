@@ -1,7 +1,7 @@
 ---
 title: Tags
 description: Label your work so you can find it again later.
-order: 4
+order: 5
 ---
 
 # Tags
