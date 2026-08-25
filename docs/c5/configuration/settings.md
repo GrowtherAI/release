@@ -42,7 +42,9 @@ You have to set this up before anything works. Add at least one model and its ke
 ### Budget
 
 Set a spending limit on your first day. It is the cheapest mistake-insurance available.
-See [Budgets](/c5/using-c5/ops).
+The Budget tab is also where you track progress toward self-improvement milestones like
+the Retrospective Loop (50 tasks) and Reward Model Promotion (100 tasks).
+See [Budgets & costs](/c5/using-c5/ops).
 
 ### Autonomy
 
