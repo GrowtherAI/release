@@ -39,6 +39,7 @@ activate.
 | `growther update`   | Get the newest version.                                         |
 | `growther rollback` | Go back to the version you had before.                          |
 | `growther doctor`   | Check your setup and report anything wrong.                     |
+| `growther qmd-run`  | Run the memory-search engine directly. See below.               |
 | `growther verify`  | Prove a file really came from us. Works offline.                 |
 | `growther uninstall`| Remove C5 from your computer.                                   |
 | `growther version`  | Print which version you have.                                   |
@@ -126,6 +127,26 @@ growther doctor
 ```
 
 See [Running doctor](/c5/cli/doctor) for what it checks.
+
+### `growther qmd-run`
+
+Runs the engine behind memory search directly, for the two things you might want to do
+by hand.
+
+```bash
+growther qmd-run pull     # fetch the language models it needs (about 2 GB)
+growther qmd-run doctor   # report on those models and the search index
+```
+
+C5 fetches the models by itself the first time it starts, so most people never need
+`pull`. Reach for it when you want them on your own schedule — before taking a laptop
+somewhere without signal, for instance.
+
+`growther qmd-run doctor` is not the same as `growther doctor`. The first reports on
+memory search; the second checks C5 as a whole.
+
+See [Memory search](/c5/tools/memory-search) for what these models do and how to install
+them on a machine with no internet.
 
 ### `growther verify`
 
