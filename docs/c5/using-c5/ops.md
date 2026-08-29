@@ -25,6 +25,26 @@ Budgets stop that. You set a ceiling, and C5 will not go past it.
 
 You can set limits for the whole system, or for one project.
 
+### The voice budget is separate, and lives elsewhere
+
+Speech has its own limit, in the **Voice Spending Limit** panel under **Settings → Budget** —
+not on this page. It is separate on purpose: voice is charged by the minute of audio and by the
+character of speech read aloud, which is a different shape of spending from the work your agents
+do, and most people want a much smaller ceiling on it.
+
+It works the same way as the main cap — a switch, an amount, and a choice of daily, weekly,
+monthly or yearly, resetting on the day you pick. C5 works out what a request will cost *before*
+making it and refuses rather than overshooting.
+
+Two things never count against it:
+
+- **The built-in on-device engine is free**, so it keeps working even when the voice budget is
+  spent. If you want dictation that cannot be interrupted by a limit, put that provider first.
+- **Silence is never sent.** A recording with nothing in it is discarded in the browser and
+  costs nothing.
+
+See [Voice](/c5/using-c5/voice) for the providers themselves.
+
 ## What happens at the limit
 
 C5 does not just stop dead. As you get close, it warns you. At the limit, it pauses new

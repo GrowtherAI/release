@@ -9,19 +9,35 @@ order: 10
 You can talk to C5 instead of typing, and you can have it read replies out loud. Both
 are optional. Neither does anything until you turn it on.
 
-Look for the small microphone at the left of the box where you type. It appears in three
-places:
+Look for the small microphone at the left of the box where you type. It appears wherever you
+would write something in your own words:
 
-- The **Chat** message box
-- The prompt box when you create a **Schedule**
-- The description box when you edit a **Task**
+| Where            | Which boxes                            |
+| ---------------- | -------------------------------------- |
+| **Chat**         | The message box                        |
+| **Schedules**    | Title, description, and instructions   |
+| **Tasks**        | Title, description, and your reasoning |
 
 Click the microphone, say what you want, and click it again to stop. Your words appear in the box
 as text, where you can read them and fix anything before you send.
 
+You will not find a microphone on a date picker or on a field that wants a web address. Saying a
+GitHub URL aloud is slower than typing it and far easier to get wrong, so those fields are left
+alone deliberately.
+
 > **Tip**
 > The text stays in the box until you send it. That pause is deliberate — read it back
 > before pressing enter, especially if you are asking for something you cannot undo.
+
+## Knowing it is listening
+
+While you are recording, a ring around the microphone grows and shrinks with your voice. It is
+driven by what the microphone is actually picking up, not by a timer — so if the ring sits still
+while you are talking, the microphone is not hearing you, and that is worth knowing before you
+speak a paragraph into nothing.
+
+C5 releases the microphone shortly after you stop. Your computer's own "microphone in use"
+indicator goes out at that point, and the next time you click, C5 picks it up again.
 
 ## Turning it on
 
@@ -51,6 +67,16 @@ Nothing leaves your machine, and it costs nothing.
 > The offline option understands **English only**. If you speak another language, you
 > will want one of the paid providers below, which all handle many languages.
 
+### Which one gets tried first
+
+Both lists are an order, not a set. C5 works down from the top and stops at the first provider
+that answers, so the arrows beside each row decide what happens when one is unavailable — a
+provider that is down, out of credit, or simply switched off is skipped rather than being an
+error you have to deal with.
+
+Put the built-in option last and you have a free fallback that works with no internet. Put it
+first and nothing you say ever leaves the machine unless the offline engine fails outright.
+
 ### The paid options
 
 OpenAI, Groq, xAI (Grok), OpenRouter and ElevenLabs all do a better job than the
@@ -58,6 +84,26 @@ built-in option, and all of them handle many languages. They are more accurate, 
 voices sound far more natural.
 
 They work by sending your audio to that company. You will need an account with them.
+
+## Two switches that change how the microphone behaves
+
+They sit at the top of the **Voice** tab and apply everywhere the microphone appears.
+
+**Auto-volume** evens out how loud you are, so speaking quietly or sitting back from the
+microphone still produces a usable recording. It is **on** to begin with. It makes no difference
+to how accurately your words are transcribed — that was measured, not assumed — but it does keep
+a quiet voice above the threshold where C5 decides a recording is silence and discards it. Turn
+it off if you would rather the ring tracked how loudly you are actually speaking.
+
+**Tap-and-hold** changes the microphone from a switch into a button: hold it down while you talk,
+let go when you finish. It is **off** to begin with, and it behaves the same whether you use a
+mouse or a touchscreen. Dragging away before you let go throws the recording away, which is
+useful when you change your mind mid-sentence.
+
+> **Note**
+> Tap-and-hold applies to the mouse and to touch. A keyboard has no way to hold a button in any
+> meaningful sense, so pressing space or enter on the microphone still starts and stops the way it
+> always did. Nothing becomes unreachable if you turn this on.
 
 ## Adding a key for a paid provider
 
@@ -108,8 +154,10 @@ Paid providers charge by the minute of audio, or by the number of characters the
 out. C5 works out what a request will cost **before** making it, and refuses if it would
 take you over your monthly voice budget.
 
-You set that limit in **Settings → Voice**, next to the providers, and the same panel shows what
-you have spent so far this month. See [Budgets & costs](/c5/using-c5/ops) for C5's other budgets.
+You set that limit in **Settings → Budget**, in the **Voice Spending Limit** panel, alongside
+C5's other spending controls. It works the same way as the hard budget cap: a switch, an amount,
+and a choice of whether the allowance resets daily, weekly, monthly or yearly — on the day you
+pick, not on an arbitrary one. See [Budgets & costs](/c5/using-c5/ops) for the rest.
 
 Two things save you money without any effort:
 
@@ -122,8 +170,21 @@ Two things save you money without any effort:
 
 Hover over any reply and press the speaker button.
 
+If you would rather not press it each time, the **megaphone** switch on the right-hand edge of the
+chat reads every new reply aloud as it arrives. It is **off** to begin with, and C5 remembers your
+choice in this browser — turning it off in one window turns it off everywhere.
+
+> **Note**
+> Auto-speak starts from the *next* reply, not the one already on screen. Turning it on and
+> waiting at a finished conversation will look like nothing happened; send something and it will
+> speak.
+
 The built-in browser voice costs nothing and works offline, but it sounds like your
 computer. A paid provider sounds far more natural and charges per character.
+
+> **Tip**
+> Think about where you are before you turn auto-speak on. A long reply narrating itself in an
+> open-plan office is the reason this is off by default.
 
 ## Voice notes from Slack, Discord and Teams
 
@@ -156,7 +217,20 @@ You have not turned on the offline option and have not added a key. Run
 **Dictation keeps coming back empty.**
 
 C5 throws away recordings that are too quiet to contain speech. Check that the right
-microphone is selected and that it is not muted.
+microphone is selected and that it is not muted. Watch the ring while you talk — if it does not
+move, the microphone is not reaching C5, and no provider will fix that.
+
+If you turned **auto-volume** off, a quiet or distant voice is more likely to fall below the
+threshold. Turning it back on is the quickest test.
+
+**The reply is not read aloud even though the megaphone is on.**
+
+Auto-speak starts from the next reply, not the one already on screen. Send something and it will
+speak.
+
+If it stays silent after that, your browser may be refusing to play audio on a page you have not
+interacted with yet — clicking anywhere in the page and sending again resolves it. Pressing the
+speaker button on a reply is unaffected, because pressing it is itself the interaction.
 
 **Voice stopped working after an update.**
 
