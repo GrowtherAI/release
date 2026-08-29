@@ -47,8 +47,8 @@ plain text. Once a file is attached, you can ask questions about it or ask for c
 
 ## Talking instead of typing
 
-Press and hold the small microphone at the left of the chat box, say what you want, and
-let go. Your words appear as text where you can read them over before you send.
+Click the small microphone at the left of the chat box, say what you want, and click it
+again to stop. Your words appear as text where you can read them over before you send.
 
 C5 can also read replies back to you — hover a reply and press the speaker button.
 
