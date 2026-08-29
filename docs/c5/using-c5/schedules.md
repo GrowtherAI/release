@@ -107,6 +107,18 @@ an estimate of money saved by running models locally for free.
   waits. C5 will catch up when it wakes.
 - **Start slow.** Run something daily for a week before you move it to hourly.
 
+## Dictating a schedule
+
+The title, description and instructions boxes each have a small microphone. Click it, say what you
+want the schedule to do, and click again to stop — the words land in the box so you can read them
+over before saving.
+
+The date and time controls have no microphone. Picking a date is faster with the calendar than by
+describing it, and a misheard date is the kind of mistake you only notice after a run happens at
+the wrong hour.
+
+See [Voice](/c5/using-c5/voice) for turning it on.
+
 ## Where to go next
 
 - [Budgets & costs](/c5/using-c5/ops) — spending limits and cost tracking.

@@ -36,6 +36,12 @@ Click any card to open it. Inside you will find:
 This is the place to look when you want to know *why* something turned out the way it
 did.
 
+When you edit a task, the title, description and reasoning boxes each have a small microphone.
+Click it, say what you mean, and click again to stop — your words land in the box so you can read
+them over before saving. Reasoning is the one people dictate most: it is the field where you are
+explaining yourself rather than naming something, and it is quicker said than typed. See
+[Voice](/c5/using-c5/voice).
+
 ## Tasks with steps inside steps
 
 Big jobs get broken into smaller ones. A task can have child tasks under it, and those

@@ -50,7 +50,13 @@ plain text. Once a file is attached, you can ask questions about it or ask for c
 Click the small microphone at the left of the chat box, say what you want, and click it
 again to stop. Your words appear as text where you can read them over before you send.
 
-C5 can also read replies back to you — hover a reply and press the speaker button.
+A ring around the microphone moves with your voice while you talk, so you can tell it is hearing
+you before you speak a whole paragraph into nothing.
+
+C5 can also read replies back to you — hover a reply and press the speaker button. The
+**megaphone** switch on the right-hand edge of the chat does it for every new reply automatically.
+It is off to begin with, which is deliberate: a long reply narrating itself in a shared office is
+not a pleasant surprise.
 
 Both are off until you turn them on, and there is a built-in option that never sends
 anything off your computer. See [Voice](/c5/using-c5/voice).
