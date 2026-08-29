@@ -108,7 +108,8 @@ Paid providers charge by the minute of audio, or by the number of characters the
 out. C5 works out what a request will cost **before** making it, and refuses if it would
 take you over your monthly voice budget.
 
-You set that budget in **Settings → Budget**. See [Budgets & costs](/c5/using-c5/ops).
+You set that limit in **Settings → Voice**, next to the providers, and the same panel shows what
+you have spent so far this month. See [Budgets & costs](/c5/using-c5/ops) for C5's other budgets.
 
 Two things save you money without any effort:
 
