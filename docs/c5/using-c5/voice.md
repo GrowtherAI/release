@@ -16,7 +16,7 @@ places:
 - The prompt box when you create a **Schedule**
 - The description box when you edit a **Task**
 
-Hold the microphone button, say what you want, and let go. Your words appear in the box
+Click the microphone, say what you want, and click it again to stop. Your words appear in the box
 as text, where you can read them and fix anything before you send.
 
 > **Tip**
@@ -33,7 +33,7 @@ You have two kinds of choice, and they behave very differently.
 
 ### The built-in option
 
-**Built-in (offline)** turns your speech into text using your own computer. Nothing is
+**Built-in (on-device)** turns your speech into text using your own computer. Nothing is
 sent anywhere. It works with no internet connection at all — it is the only option that
 does.
 
@@ -85,7 +85,7 @@ picked.
 
 | Option                      | What leaves your computer                                   |
 | --------------------------- | ----------------------------------------------------------- |
-| **Built-in (offline)**      | Nothing at all                                               |
+| **Built-in (on-device)**      | Nothing at all                                               |
 | **Built-in (this browser)** | Nothing at all                                               |
 | Any paid provider           | The audio you recorded, or the text you asked to be read out |
 
@@ -113,7 +113,7 @@ you have spent so far this month. See [Budgets & costs](/c5/using-c5/ops) for C5
 
 Two things save you money without any effort:
 
-- **Silence is never sent.** If you hold the button and say nothing, C5 notices and
+- **Silence is never sent.** If you start recording and say nothing, C5 notices and
   throws the recording away. There is nothing to pay for.
 - **The offline option is free**, and it is never counted against your budget — even if
   you have used the rest of it up.
