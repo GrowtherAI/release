@@ -45,6 +45,16 @@ plain text. Once a file is attached, you can ask questions about it or ask for c
 > Attach the file first, then ask your question. That way the agent has everything it
 > needs from the start.
 
+## Talking instead of typing
+
+Press and hold the small microphone at the left of the chat box, say what you want, and
+let go. Your words appear as text where you can read them over before you send.
+
+C5 can also read replies back to you — hover a reply and press the speaker button.
+
+Both are off until you turn them on, and there is a built-in option that never sends
+anything off your computer. See [Voice](/c5/using-c5/voice).
+
 ## Stopping work
 
 If an agent is heading in the wrong direction, you can stop it. Click **Stop** and it
@@ -107,3 +117,4 @@ A few habits make a big difference:
 - [Productivity](/c5/using-c5/productivity) — watch longer jobs on a board.
 - [Schedules](/c5/using-c5/schedules) — have this happen on its own every week.
 - [Library](/c5/using-c5/library) — find the files your agents made.
+- [Voice](/c5/using-c5/voice) — talk to C5 instead of typing.
