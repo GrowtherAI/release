@@ -39,13 +39,13 @@ speak a paragraph into nothing.
 C5 releases the microphone shortly after you stop. Your computer's own "microphone in use"
 indicator goes out at that point, and the next time you click, C5 picks it up again.
 
-## Turning it on
+## You do not have to turn it on
 
-1. Go to **Settings**.
-2. Open the **Voice** tab.
-3. Turn on a provider under **Speech to text**, **Text to speech**, or both.
+The two built-in options are **already on**. You only need the **Voice** tab if you want a paid
+provider, or if you want to turn the built-in ones off.
 
-You have two kinds of choice, and they behave very differently.
+Nothing listens until you press a microphone. Being switched on only means the free engine is
+there when you do.
 
 ### The built-in option
 
@@ -53,15 +53,19 @@ You have two kinds of choice, and they behave very differently.
 sent anywhere. It works with no internet connection at all — it is the only option that
 does.
 
-It needs a one-time download of about 60 MB. C5 fetches it for you, or you can do it
-yourself from a terminal:
+It needs a one-time download of about 60 MB, and **C5 starts fetching it in the background the
+first time it boots after an update**. You do not have to do anything, and you can carry on
+working while it downloads. The built-in row on the **Voice** tab shows the progress, and says
+when the model is ready.
+
+If you would rather fetch it yourself, or the automatic download could not reach the network:
 
 ```bash
 growther voice pull
 ```
 
-**Built-in (this browser)** reads replies aloud using a voice your computer already has.
-Nothing leaves your machine, and it costs nothing.
+**Built-in (this browser)** reads replies aloud using a voice your computer already has. It needs
+no download at all and is ready immediately. Nothing leaves your machine, and it costs nothing.
 
 > **Note**
 > The offline option understands **English only**. If you speak another language, you
@@ -211,8 +215,12 @@ it. Connect through an SSH tunnel and open `http://localhost` instead.
 
 **C5 says no speech-to-text provider is set up.**
 
-You have not turned on the offline option and have not added a key. Run
-`growther voice pull` for the free one, or add a key to `c5.yaml`.
+If you have just updated, the built-in engine is probably still downloading — it is switched on,
+but its model has not arrived yet. C5 will say so rather than this if it knows a download is in
+flight; check the **Voice** tab, which shows the progress. Wait for it to finish and try again.
+
+Otherwise you have turned the built-in option off and have not added a key. Turn it back on in
+**Settings → Voice**, run `growther voice pull`, or add a key to `c5.yaml`.
 
 **Dictation keeps coming back empty.**
 

@@ -58,8 +58,9 @@ C5 can also read replies back to you — hover a reply and press the speaker but
 It is off to begin with, which is deliberate: a long reply narrating itself in a shared office is
 not a pleasant surprise.
 
-Both are off until you turn them on, and there is a built-in option that never sends
-anything off your computer. See [Voice](/c5/using-c5/voice).
+Both work out of the box with a built-in option that never sends anything off your computer, so
+there is nothing to set up first. Nothing listens until you press the microphone. See
+[Voice](/c5/using-c5/voice) if you want a paid provider, or want to turn the built-in ones off.
 
 ## Stopping work
 
