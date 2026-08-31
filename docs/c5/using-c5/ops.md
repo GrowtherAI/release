@@ -80,26 +80,55 @@ task that caused it.
 
 ## Self-improvement milestones
 
-As your agents complete real work, C5 unlocks advanced self-improvement features. These
-are gated behind completed task milestones so they only run once there is enough history
-to be helpful without wasting your budget on early guesses.
+As your agents get real work done, C5 passes milestones. Most of them unlock an advanced
+self-improvement feature, held back until there is enough history to be helpful rather
+than guessing early and spending your budget on it. One of them simply marks the point
+where something you have been doing has built up enough evidence to be worth reading.
 
-When you reach a milestone, a star badge appears in the bottom left of your sidebar:
+When you reach a milestone, a star badge appears in the bottom left of your sidebar. Each
+badge is independent — you will see whichever ones you have earned, in any order.
 
-| Milestone | Completed tasks | Sidebar badge | What it does |
+| Milestone | Unlocks at | Sidebar badge | What it means |
 | --- | --- | --- | --- |
-| **Retrospective Loop** | 50 tasks | **Violet star** | Analyzes failed tasks to suggest new review rules and compare rule similarity. |
-| **Reward Model Promotion** | 100 tasks | **Blue star** | Uses historical data to automatically promote experimental prompt variants when they beat the baseline. |
+| **Recipes In Use** | 25 recipe uses | **Gold star** | Recipes have planned 25 tasks. Each one now carries a measured verdict on whether using it beat planning from scratch. |
+| **Retrospective Loop** | 50 completed tasks | **Violet star** | Analyzes failed tasks to suggest new review rules and compare rule similarity. |
+| **Reward Model Promotion** | 100 completed tasks | **Blue star** | Uses historical data to automatically promote experimental prompt variants when they beat the baseline. |
+
+Note that the three count different things. The Retrospective Loop and Reward Model
+milestones count **completed tasks**, so they arrive in that order as you work. Recipes
+In Use counts **times a recipe was applied to a task** — something you start doing only
+once you have recipes to apply — so it can arrive before either of the others, or long
+after. Once earned, a badge stays earned.
 
 ### Tracking your progress
 
-You can check your progress toward each milestone in **Settings › Budget**:
+The two task-count milestones show their progress in **Settings › Budget**:
 
 1. Go to **Settings**.
 2. Open the **Budget** tab.
 3. Look at the **Retrospective Loop** and **Reward Model Promotion** cards to see your current completed task count (e.g. `34/50` or `82/100`).
 
-Once unlocked, you can click either star in the sidebar to review what unlocked, or turn the feature on or off in **Settings › Budget** to manage token usage.
+For **Recipes In Use**, the count you are watching is in **Analytics › Recipes**, under
+**Blueprint Invocations** — the total number of times a recipe has been applied to a task.
+
+Clicking a star tells you what it unlocked. The Retrospective Loop and Reward Model stars
+take you to **Settings › Budget**, where you can turn either feature off to manage token
+usage. The Recipes In Use star takes you to **Labs › Recipes** instead, because it does
+not switch anything on — it marks the point where there is finally something to look at.
+
+### Using recipes
+
+Recipes are offered, never imposed. When you create a task — in Chat, or in the task
+editor on the board — C5 compares what you have written against the tasks each recipe was
+distilled from, and if one clearly fits it appears as a suggestion beside the recipe
+picker. Taking it is up to you; ignoring it costs nothing.
+
+Every recipe you apply is then measured. C5 compares the quality of the runs that recipe
+planned against what tasks of the same complexity score when planned from scratch, and
+shows the result on both **Labs › Recipes** and **Analytics › Recipes** as a figure like
+`+12.4 vs from scratch`. A recipe with no measurement yet shows nothing at all rather
+than a zero — no reuses means no verdict, which is not the same as a bad one. See
+[Labs](/c5/using-c5/labs) for where recipes come from.
 
 ## Keeping costs down
 

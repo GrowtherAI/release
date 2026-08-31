@@ -31,17 +31,30 @@ workshop without stopping the work happening next door.
 
 ## Recipes
 
-A recipe is a job you have written down so it can be repeated exactly. Instead of
-explaining the same thing every time, you save it once and run it whenever you need.
+A recipe is a plan for a job, kept so it can be repeated. You do not write them —
+C5 writes them for you, from work that went well. When a task finishes with a
+strong result, C5 distils the sequence of agents that produced it; when the same
+sequence proves itself across several tasks, that shape is kept too.
 
-Good candidates:
+The kinds of job this tends to produce a recipe for:
 
 - A weekly report that always pulls from the same places
 - A review checklist you apply to every document
 - A set-up routine you run at the start of each project
 
-Recipes can be run by hand from Chat, or put on a timer with
-[Schedules](/c5/using-c5/schedules).
+You choose when to use one. Pick a recipe in Chat when you create a task, in the
+task editor on the board, or put one on a timer with
+[Schedules](/c5/using-c5/schedules). If what you have written closely matches a
+task an existing recipe came from, C5 will point that recipe out beside the
+picker — as a suggestion you can take or ignore, never as a decision made for
+you.
+
+Each recipe is then judged on results. C5 compares the runs it planned against
+what similar tasks score when planned from scratch, and shows the difference on
+this tab and in [Analytics](/c5/using-c5/analytics). A recipe that turns out to
+do worse than planning from scratch stops being suggested. One that has not been
+used enough to say shows nothing rather than a score, because no evidence is not
+the same as a bad result.
 
 ## Skills
 
