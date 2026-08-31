@@ -39,12 +39,13 @@ sentence.
 
 ## Progress you can see
 
-Using C5 is designed to feel rewarding. As you and your agents complete real work, C5 tracks
-your progress and unlocks self-improvement abilities with achievement stars in your
-sidebar.
+Using C5 is designed to feel rewarding. As you and your agents complete real work, C5
+tracks your progress and marks each milestone with an achievement star in your sidebar.
 
-Hitting milestones unlocks new powers for your agents — like deep analysis on failed jobs
-at 50 tasks, and automated prompt improvements at 100 tasks. See
+Most of them unlock something new — deep analysis on failed jobs at 50 tasks, automated
+prompt improvements at 100. The gold star is different: it arrives once recipes have
+planned 25 of your tasks, and unlocks nothing at all. It marks the point where C5 has
+watched those recipes long enough to tell you which ones actually helped. See
 [Self-improvement milestones](/c5/using-c5/ops#self-improvement-milestones).
 
 ## Your data stays yours
