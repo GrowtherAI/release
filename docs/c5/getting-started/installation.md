@@ -94,8 +94,8 @@ Open that address in your browser to use the app.
 | System  | Chips supported            |
 | ------- | -------------------------- |
 | macOS   | Apple Silicon and Intel    |
-| Linux   | x86_64 and ARM64           |
-| Windows | x86_64                     |
+| Windows | x86_64 and ARM64           |
+| Linux   | x86_64                     |
 
 ## If the command is not found
 
