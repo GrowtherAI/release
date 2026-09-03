@@ -1,0 +1,75 @@
+{
+  "stable": {
+    "version": "2026.9.3-v241",
+    "releasedAt": "2026-09-03T22:39:17.159Z",
+    "commitHash": "bfe46683743b38bdd34eac5e736191ad40737327",
+    "notes": "C5 v2026.9.3-v241",
+    "assets": [
+      {
+        "os": "linux",
+        "arch": "x64",
+        "filename": "growther-node22-linux-x64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.3-v241/growther-node22-linux-x64.tar.gz",
+        "sha256": "e8ce43baadc460691868226d6d46e061717323fdaaed9c93daede4a4eda4efd3",
+        "sizeBytes": 81382341,
+        "binaryFilename": "growther-c5-linux-x64-v2026.9.3-v241.zip",
+        "binaryEntry": "growther-c5-linux-x64-v2026_9_3-v241",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.3-v241/growther-c5-linux-x64-v2026.9.3-v241.zip",
+        "binarySha256": "ddca5a482de1c1c388faa77f96064240a7935e9d2df56e9de78616c14c8271e9",
+        "binarySizeBytes": 81381771
+      },
+      {
+        "os": "macos",
+        "arch": "arm64",
+        "filename": "growther-node22-macos-arm64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.3-v241/growther-node22-macos-arm64.tar.gz",
+        "sha256": "34478da18f9ab561c3be74fffc70a6a4e717e3bb625bb6f8b70ac8774e8ac0ac",
+        "sizeBytes": 72131238,
+        "binaryFilename": "growther-c5-macos-arm64-v2026.9.3-v241.zip",
+        "binaryEntry": "growther-c5-macos-arm64-v2026_9_3-v241",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.3-v241/growther-c5-macos-arm64-v2026.9.3-v241.zip",
+        "binarySha256": "a8c7a5763abc30a3b733b03c55207041d72d64fa4fcebf442a9004b5c12d671f",
+        "binarySizeBytes": 72134946
+      },
+      {
+        "os": "macos",
+        "arch": "x64",
+        "filename": "growther-node22-macos-x64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.3-v241/growther-node22-macos-x64.tar.gz",
+        "sha256": "0ae2b3e9783ec8c6d2ffde46eb9b13459a2b5451b63300a763222805fe47c028",
+        "sizeBytes": 79661572,
+        "binaryFilename": "growther-c5-macos-x64-v2026.9.3-v241.zip",
+        "binaryEntry": "growther-c5-macos-x64-v2026_9_3-v241",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.3-v241/growther-c5-macos-x64-v2026.9.3-v241.zip",
+        "binarySha256": "035701077494db89c7ddbcbecbea4379dfaff6efd4ab65c1b8a205bad8cdc016",
+        "binarySizeBytes": 79657336
+      },
+      {
+        "os": "win",
+        "arch": "arm64",
+        "filename": "growther-node22-win-arm64.zip",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.3-v241/growther-node22-win-arm64.zip",
+        "sha256": "b37a1b56d01623f85f96f5c9759a5d03ca398fbd1537e71c855ce64a93ad7bb8",
+        "sizeBytes": 66882983,
+        "binaryFilename": "growther-c5-win-arm64-v2026.9.3-v241.zip",
+        "binaryEntry": "growther-c5-win-arm64-v2026.9.3-v241.exe",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.3-v241/growther-c5-win-arm64-v2026.9.3-v241.zip",
+        "binarySha256": "72e4d96c25ff64a95b05017f8de64aa79caabdd3c6b4384b0de1bbe078e2183c",
+        "binarySizeBytes": 66882765
+      },
+      {
+        "os": "win",
+        "arch": "x64",
+        "filename": "growther-node22-win-x64.zip",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.3-v241/growther-node22-win-x64.zip",
+        "sha256": "8ad2c6700e4101250b29aa001db9b1baa2cae2c8d12e3efb3edcb242240af82b",
+        "sizeBytes": 74013840,
+        "binaryFilename": "growther-c5-win-x64-v2026.9.3-v241.zip",
+        "binaryEntry": "growther-c5-win-x64-v2026.9.3-v241.exe",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.3-v241/growther-c5-win-x64-v2026.9.3-v241.zip",
+        "binarySha256": "491c340b35f3058c0ca1a896bba7ea62089dea18863bf828cc457b6545f084c9",
+        "binarySizeBytes": 74013603
+      }
+    ]
+  }
+}
