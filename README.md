@@ -151,7 +151,7 @@ built and signed by the release pipeline.
 - 🌐 [Growther.ai](https://Growther.ai) — home
 - 🌐 [docs.Growther.ai](https://docs.Growther.ai) — docs & resources
 - 📦 [Release archive](dist/c5/) — every published version, with digests
-- 🧾 [`releases.json`](dist/c5/releases.json) — versopms catalog the
+- 🧾 [`releases.json`](dist/c5/releases.json) — versions catalog the
   installer and the in‑app auto‑updater read
 
 <br>
