@@ -148,9 +148,10 @@ built and signed by the release pipeline.
 
 ## Links
 
-- 🌐 [growther.ai](https://growther.ai) — home
+- 🌐 [Growther.ai](https://Growther.ai) — home
+- 🌐 [docs.Growther.ai](https://docs.Growther.ai) — docs & resources
 - 📦 [Release archive](dist/c5/) — every published version, with digests
-- 🧾 [`releases.json`](dist/c5/releases.json) — the machine‑readable catalog the
+- 🧾 [`releases.json`](dist/c5/releases.json) — versopms catalog the
   installer and the in‑app auto‑updater read
 
 <br>
