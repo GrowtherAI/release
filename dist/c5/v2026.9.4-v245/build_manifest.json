@@ -1,0 +1,33 @@
+{
+  "version": "2026.9.4-v245",
+  "commitHash": "df7f3c85d6cdc787e28b3ff441d785ba3b68acbb",
+  "branch": "main",
+  "buildTimestamp": "2026-09-04T09:04:33Z",
+  "ciPipelineId": "33852065821",
+  "ciPipelineUrl": "https://github.com/GrowtherAI/growther-c5/actions/runs/33852065821",
+  "checks": {
+    "lint": "pass",
+    "tests": "pass",
+    "testsPassed": 17567,
+    "testsFailed": 0,
+    "clientTests": "pass",
+    "clientPassed": 6324,
+    "clientFailed": 0,
+    "sast": "pass",
+    "sastCritical": 0,
+    "sastHigh": 0,
+    "sastReportSha256": "7703719df3090db2de4d7d193e053729bbb3921adcd4842b9c23a19acf1f8d00",
+    "build": "pass"
+  },
+  "ciRunId": "33852026718",
+  "signature": "KpNglvjrfDoMoJE8gluda9y8pIVzoxJWXK+V+HXKBxuPYdWu4mzk0+2Mo81P+5kBMh26f/uVmua4RLObtPVJBA==",
+  "binaryHash": {
+    "linux-x64": "28a63751b9247665aa80ace015df2fa910ef5e5926d08109aeb0f461abbd60cf",
+    "macos-arm64": "400858bf53b770adc571997cc02a00917fdeb7c38398a6bea6f3986f4bd62fe0",
+    "macos-x64": "b233d22cbe20014e3324a0819bc44304bc2ab878bc8c143062313fb4f2ee2943",
+    "win-arm64": "664ea1fc791a457e38082783491aca8797e4972eda9df16b32b86449797e227f",
+    "win-x64": "19262ae6b8f2dd32320c280767d2b7cbb36bcfef2484fd4231027999d7d0ca7a"
+  },
+  "keyId": "5f4113ab261a9eab",
+  "payloadVersion": 2
+}
