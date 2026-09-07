@@ -121,6 +121,20 @@ growther update --check    # only check, do not install
 growther update --restart  # update, then restart the service
 ```
 
+### `growther rollback`
+
+Puts back the version you had before an update.
+
+```bash
+growther rollback
+```
+
+If you have moved your API keys and licence into the system keystore (see
+[Secrets and keys](/c5/security/secrets-and-keys)), C5 checks before it swaps. An older
+version cannot read a keystore reference: it would read the reference itself as your
+licence and refuse to start, and every provider key would fail. C5 refuses the roll back
+and tells you to run `growther secrets revert` first. `--force` proceeds anyway.
+
 ### `growther doctor`
 
 Checks your whole setup and tells you what is wrong in plain words. This is the first
@@ -147,6 +161,7 @@ growther home show
 growther home probe /Volumes/Work/growther
 growther home migrate --to /Volumes/Work/growther
 growther home rollback
+growther home cancel
 growther home prune-retired /Users/you/.growther/data.retired-2026-09-06T10-00-00 --yes
 ```
 
@@ -155,6 +170,9 @@ asks for confirmation, and then stops C5 so the next start performs the move wit
 database checked against your key before anything is switched. The old folder is kept
 as a retired copy until you prune it. Databases are never placed on a network folder
 or a synced folder; see [Where your data lives](/c5/configuration/data-location).
+
+A move or a roll back that is interrupted resumes at the next start. `cancel` abandons
+one instead, so a job you no longer want never has to be cleared by hand.
 
 ### `growther lock`
 
@@ -273,6 +291,11 @@ reinstall later and pick up where you left off.
 ```bash
 growther uninstall --purge-data
 ```
+
+`--purge-data` removes every folder C5 owns, not only the main one: a data or key folder
+you moved to another disk, and the small pointer file that records where the folder is.
+It lists each one before removing it. Leaving the pointer behind used to stop the next
+fresh install from starting, so a purge is now genuinely complete.
 
 ## Getting the version
 

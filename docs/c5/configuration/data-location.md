@@ -73,6 +73,14 @@ growther home show
 growther home probe /Volumes/Work/growther
 ```
 
+C5 refuses a folder that already holds a file the move would replace, and names the
+files. Pick an empty folder, or move those aside first. Merging into a folder that
+already holds unrelated subfolders is fine.
+
+If a move or a roll back is interrupted — the machine loses power part way through, or
+a rename fails — the next start picks it up where it stopped. Nothing needs repairing
+by hand. To abandon one instead, run `growther home cancel`.
+
 ## What C5 refuses, and why
 
 **Databases are never placed on a network folder, a mapped drive, a roaming profile, or
@@ -81,6 +89,11 @@ at every start and refuses to run if the databases are on one of those. The reas
 not caution for its own sake: the database engine keeps part of its state in shared
 memory that only one computer can see, so two computers opening the same folder would
 corrupt it, and a sync client can copy a half-written file over a good one.
+
+On a locked-down Windows image the check itself can be blocked from running. C5 then
+decides from what it can see without help — a network path, a OneDrive folder, a synced
+root — and starts with a warning rather than refusing. A folder that positively looks
+like any of those is still refused.
 
 If a configured folder is unreachable when C5 starts, it stops with a message naming
 the folder and who set it, rather than silently starting an empty second copy somewhere
