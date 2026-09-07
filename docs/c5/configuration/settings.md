@@ -31,6 +31,7 @@ You do not need to change most of these. C5 works sensibly out of the box.
 | **Locations**     | Folders C5 brings documents in from and writes results into.  |
 | **Storage**       | Your data, its encryption, and export.                        |
 | **System**        | Ports, paths, and how C5 runs on this machine.                |
+| **Enterprise**    | Managed policy, directory sign-in, secrets custody, audit shipping, storage. |
 
 ## The ones worth setting early
 

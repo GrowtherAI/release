@@ -25,6 +25,9 @@ growther
 | Variable                   | What it does                                    | Default                  |
 | -------------------------- | ----------------------------------------------- | ------------------------ |
 | `GROWTHER_HOME`            | Where C5 keeps all your data.                    | `~/.growther`            |
+| `GROWTHER_DATA_DIR`        | Where the databases live. Must be a local disk.  | `<home>/data`            |
+| `GROWTHER_SECRETS_DIR`     | Where the device key set lives. Local only.       | `<home>/config`          |
+| `GROWTHER_CACHE_DIR`       | Where downloaded models and caches live.         | `<home>`                 |
 | `PORT`                     | Which port the C5 server listens on.             | `4299`                   |
 | `GROWTHER_CHANNEL`         | Which releases you get: stable, beta, or dev.    | `stable`                 |
 | `GROWTHER_NO_SELF_INSTALL` | Set to `1` to run the program where it sits.     | off                      |
@@ -86,3 +89,16 @@ the folder is a copy of everything, key included. See
 [Local encryption](/c5/security/encryption) before you back it up anywhere shared.
 
 Backing up this one folder backs up your entire C5 setup.
+
+## Locations are decided once
+
+`GROWTHER_HOME` and the three folders above are read when C5 starts and never change
+while it runs. On a managed device an organisation policy wins over the environment;
+otherwise the environment wins over the pointer file C5 writes when you move the home
+from Settings. A service unit registered by an older version may still carry an old
+`GROWTHER_HOME`; C5 prefers the pointer in that case and rewrites the unit at the next
+start.
+
+Databases are refused on a network folder, a mapped drive, a roaming profile or a synced
+folder. `GROWTHER_ALLOW_REMOTE_DATA=1` lifts that only in development builds, never in a
+released binary.

@@ -39,6 +39,10 @@ activate.
 | `growther update`   | Get the newest version.                                         |
 | `growther rollback` | Go back to the version you had before.                          |
 | `growther doctor`   | Check your setup and report anything wrong.                     |
+| `growther home`     | Show, check or move where C5 keeps its files. See below.       |
+| `growther lock`     | Show or clear the single-instance lock. See below.             |
+| `growther policy`   | Managed configuration for IT: validate, sign, pin. See below.  |
+| `growther user`     | Create the first administrator on a managed install.           |
 | `growther qmd-run`  | Run the memory-search engine directly. See below.               |
 | `growther verify`  | Prove a file really came from us. Works offline.                 |
 | `growther uninstall`| Remove C5 from your computer.                                   |
@@ -127,6 +131,66 @@ growther doctor
 ```
 
 See [Running doctor](/c5/cli/doctor) for what it checks.
+
+`growther doctor --json` prints one machine-readable report and writes
+`doctor-status.json` into the C5 folder for device-management tools; `--strict` also fails
+on warnings. The report includes where the home was resolved from, the filesystem class
+of the data folder, which machine holds the lock, and whether this is a managed install.
+
+### `growther home`
+
+C5 keeps configuration, databases, keys and caches under one folder. `home` lets you
+see that layout, check a folder before using it, and move to another local disk.
+
+```bash
+growther home show
+growther home probe /Volumes/Work/growther
+growther home migrate --to /Volumes/Work/growther
+growther home rollback
+growther home prune-retired /Users/you/.growther/data.retired-2026-09-06T10-00-00 --yes
+```
+
+`migrate` validates the target (a local disk with room to spare), shows what will move,
+asks for confirmation, and then stops C5 so the next start performs the move with every
+database checked against your key before anything is switched. The old folder is kept
+as a retired copy until you prune it. Databases are never placed on a network folder
+or a synced folder; see [Where your data lives](/c5/configuration/data-location).
+
+### `growther lock`
+
+Only one C5 may use a data folder at a time, and the lock records which machine holds
+it. If a machine was rebuilt and a stale lock remains:
+
+```bash
+growther lock status
+growther lock break --confirm
+```
+
+`break` refuses while the holder is alive on this machine.
+
+### `growther policy`
+
+For IT administrators pushing configuration. See
+[Managed configuration](/c5/configuration/enterprise-policy).
+
+```bash
+growther policy show                                  # what is applied, from where
+growther policy validate policy.yaml                  # one row per key; non-zero if anything is rejected
+growther policy keygen --out ./policy-keys            # an Ed25519 signing pair
+growther policy sign policy.yaml --key ./policy-keys/policy-signing.key
+sudo growther policy pin ./policy-keys/policy-signing.pub
+growther policy expect                                # mark this install as managed
+growther policy reload                                # re-read the policy now
+```
+
+### `growther user`
+
+On a managed install the anonymous first-user setup is off. Create the first
+administrator from the device instead:
+
+```bash
+growther user bootstrap-admin --name "IT Admin"
+```
 
 ### `growther qmd-run`
 
