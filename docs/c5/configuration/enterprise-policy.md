@@ -122,6 +122,9 @@ growther policy reload
 
 ## Unattended installs
 
+To push C5 itself, use the Windows or macOS installer package — see
+[Deploying across an organisation](/c5/configuration/deploying).
+
 Add `--policy-expected` to the install script, or run `growther policy expect` after
 installing. C5 then treats the absence of a policy as a fault rather than a choice, and
 disables the anonymous first-user setup so nobody can claim the administrator seat before

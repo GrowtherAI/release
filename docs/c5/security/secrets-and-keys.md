@@ -47,9 +47,41 @@ Each key is written to the keystore, read back, and only then replaced in the fi
 read-back does not return exactly what was written, nothing is changed. `growther secrets
 revert` brings the plaintext values back.
 
-On Windows fleets where AppLocker or WDAC enforces Constrained Language Mode, PowerShell
-cannot reach the encryption API. C5 detects this, keeps the keys in the file, and says so
-in `growther doctor`. Set up escrow (below) on those machines.
+On a locked-down Windows fleet there is a second route to the keystore. See below.
+
+## Locked-down Windows fleets
+
+Many managed Windows images run PowerShell in **Constrained Language Mode**, a lockdown that
+AppLocker or WDAC switches on to stop scripts reaching most of the .NET framework. It restricts
+the scripting engine, not the machine.
+
+It matters here because C5's first route to the Windows keystore goes through PowerShell. Under
+Constrained Language Mode that route is closed: the encryption class is unreachable, `Add-Type`
+is unavailable, and running PowerShell with a different execution policy does not lift it. The
+fleets that most want their keys in a keystore were therefore exactly the ones that had to
+leave them in a file.
+
+C5 has a second route: a small signed helper program that sits beside the C5 program and calls
+the Windows encryption interface directly. A signed program is not a script, so the lockdown
+does not touch it. The secret is handed to it on standard input, never on a command line, for
+the same reason as everywhere else in C5 — Windows process auditing records command lines and
+sends them to your SIEM.
+
+There is nothing to choose and nothing to configure. C5 tries PowerShell first, because it is
+on every Windows machine and needs nothing shipped alongside. If that route is blocked, C5 uses
+the helper, and proves it works with a real encrypt-and-decrypt round trip before trusting it
+with anything. The helper ships inside the Windows download and the MSI, beside the C5 program,
+so there is nothing to install separately.
+
+**Items stored either way are interchangeable.** Both routes write the same protected file, in
+the same place, with the same scope. A key stored before your fleet was locked down is readable
+afterwards, and a key stored through the helper is readable if the lockdown is later lifted.
+Nothing needs migrating in either direction.
+
+**Check rather than assume.** Open **Settings › Enterprise › Secrets custody**, or run
+`growther secrets status`. It names which route is doing the work and why the other one is not.
+If it says nothing on this machine can reach the keystore, your keys are still in the
+configuration file — set up escrow (below), and `growther doctor` will keep reminding you.
 
 ## Escrow the device key
 
