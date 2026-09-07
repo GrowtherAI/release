@@ -30,7 +30,7 @@ not get flagged as a credit card just because it is the right length.
 
 ## What happens when it finds something
 
-You choose, in **Settings › Extensions**:
+You choose, in **Settings › Tools**, under *Egress Data-Loss Prevention*:
 
 | Setting    | What C5 does                                                             |
 | ---------- | ------------------------------------------------------------------------ |

@@ -17,8 +17,7 @@ Consider adding one when:
 
 - You work for **more than one client** and their work must not mix
 - You want **personal and work** things kept apart
-- Different jobs need **different settings** — different models, different budgets,
-  different folders
+- Different jobs need to stay **separately identified**, each with its own signing identity
 - You need to **hand over proof** that a finished piece came from you
 
 ## What each workspace has
@@ -26,9 +25,13 @@ Consider adding one when:
 Each one keeps its own:
 
 - Projects, files, and history
-- Settings and budgets
-- Folder access
-- Tags
+- Assigned agents
+- Visibility — who in your organisation can see it
+- An owner
+- A signing identity, so work delivered from it can be verified
+
+Budgets, model choices and folder access are **not** per-workspace: they are set once for
+your whole install under **Settings**, and apply to every workspace.
 
 Work in one workspace does not show up in another. Switching is like walking to a
 different desk — the same tools, a different set of papers.
@@ -55,13 +58,16 @@ that proof no longer checks out, and the person you sent it to can tell.
 
 This matters when you deliver work to a client who needs to trust where it came from.
 
-## How to sign something
+## How signing works
 
-1. Open the item in your [Library](/c5/using-c5/library).
-2. Choose **Sign**.
-3. C5 signs it with the workspace's identity.
+You do not sign anything by hand. A deliverable is signed **when it is produced**, with the
+workspace's identity, so everything your agents finish carries its provenance already.
 
-Whoever receives it can verify it without needing access to your C5.
+What the Library gives you is the other half — **Validate**, which checks a file against its
+signature and tells you whether it is intact and where it came from. Use it on something you
+have received, or to re-confirm your own work before you send it.
+
+Whoever receives a signed deliverable can verify it without needing access to your C5.
 
 ## Keeping workspaces tidy
 

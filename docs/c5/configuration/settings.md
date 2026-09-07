@@ -16,12 +16,11 @@ You do not need to change most of these. C5 works sensibly out of the box.
 | Area              | What it controls                                             |
 | ----------------- | ------------------------------------------------------------- |
 | **General**       | Basic behavior and appearance.                                |
-| **LLMs**          | Which AI models you use and their keys.                       |
+| **Integrations**  | Which AI models and services you use, and their keys.         |
 | **Autonomy**      | How much your agents may do without asking you.               |
 | **Guardrails**    | Hard limits agents cannot cross.                              |
 | **Budget**        | Spending caps and warnings.                                   |
 | **Tools**         | Which tools exist and how each one is allowed to be used.     |
-| **Tool Health**   | Whether each tool is working, and what has been failing.      |
 | **Extensions**    | Optional capabilities, each switchable on, prompt, or off.    |
 | **Integrations**  | Connections to other services and MCP servers.                |
 | **Access**        | Who can use this C5 and what they may do.                     |
@@ -35,7 +34,7 @@ You do not need to change most of these. C5 works sensibly out of the box.
 
 ## The ones worth setting early
 
-### LLMs
+### Integrations
 
 You have to set this up before anything works. Add at least one model and its key. See
 [Model providers](/c5/configuration/model-providers).

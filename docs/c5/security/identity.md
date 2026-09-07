@@ -149,6 +149,13 @@ Both create accounts, set the administrator flag from group membership, and disa
 who leave. Disabling ends their open sessions immediately rather than at the next expiry,
 and frees their seat.
 
+> **This is the one path that can lock you out.** Directory sync is authoritative: if your
+> last enabled administrator leaves the admin group, or is removed from the directory, C5
+> disables them like anyone else. The "you cannot lock yourself out" protection elsewhere on
+> this page guards the in-app controls, not the directory. Keep a break-glass administrator
+> outside the synced group, and check the administrator count in `growther doctor` after any
+> change to your group mapping.
+
 Using both against one tenant is refused: the two channels describe the same person with
 different identifiers, and C5 stops rather than silently creating two accounts and burning
 two seats.
@@ -187,7 +194,9 @@ before you plan around it:
 
 - It moves **passkeys**, not the sign-in flow. OpenID Connect and LDAP work over a corporate
   name without any of it.
-- **SAML does not follow the name.** C5 registers `http://localhost:<port>/api/v1/auth/saml/acs`
-  as its assertion consumer address and does not change it when you change the passkey name, so
-  a deployment people reach over the network cannot yet take SAML assertions back. Use OpenID
-  Connect, LDAP, or `growther login` on the server for that shape.
+- **SAML follows the name too.** C5's assertion consumer address is built from the same
+  origin list the passkey name change writes, so setting a corporate name moves it from
+  `http://localhost:<port>/api/v1/auth/saml/acs` to `https://<your name>/api/v1/auth/saml/acs`.
+  Check the address C5 will register with `growther policy show` or the Identity card before
+  you hand it to your provider, and re-register it there if you change the name later — the
+  provider posts to whatever address it has on file.

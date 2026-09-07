@@ -32,10 +32,11 @@ The **Tags** page lists every tag you have, with:
 
 - How many things use it
 - What color it shows in
-- Options to rename, recolor, or delete it
+- Options to recolor or delete it
 
-Renaming a tag updates it everywhere at once. Deleting a tag removes the label but never
-the work itself.
+There is no rename: search for the tag you want to change, apply the new one to everything
+it is on, then delete the old one. Deleting a tag removes the label but never the work
+itself.
 
 ## Choosing good tags
 

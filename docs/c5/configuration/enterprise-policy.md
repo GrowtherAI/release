@@ -36,24 +36,54 @@ refers to them, it never carries them.
 
 ## Four ways to deliver a policy
 
+### First: get the templates
+
+C5 writes them itself. Every install puts the current set in `<home>/enterprise` at
+startup — `%USERPROFILE%\.growther\enterprise` on Windows, `~/.growther/enterprise`
+elsewhere — and you can write them anywhere on demand:
+
+```bash
+growther policy templates --out ./c5-mdm
+```
+
+| File | For |
+| --- | --- |
+| `Growther-C5.admx` + `en-US/Growther-C5.adml` | Group Policy and Intune |
+| `ai.growther.c5.mobileconfig` | Jamf, Intune and any macOS MDM |
+| `samples/policy.d/10-baseline.yaml` | Linux drop-in, ready to edit |
+| `samples/policy.example.yaml` | A signed policy document to start from |
+| `growther-c5-policy.schema.json` | Validate a document in your editor or CI |
+| `README.md` | Every key, its type and what it locks |
+
+**Use the templates from the version you are deploying.** They are generated from that
+build's own key list, so they can never offer a key the server does not understand — which
+is the failure they exist to prevent: a policy an administrator sets and the server silently
+ignores. C5 refreshes them on every start, and leaves any file you have edited alone.
+
 ### Windows: Intune or Group Policy
 
-Import `Growther-C5.admx` and `en-US/Growther-C5.adml` from the `packaging/enterprise`
-folder of the release into the Intune Settings Catalog (imported ADMX) or your central
-store. Policies under **Computer Configuration › Growther C5** are locked;
+Import `Growther-C5.admx` and `en-US/Growther-C5.adml` into the Intune Settings Catalog
+(imported ADMX) or your central store. Policies under **Computer Configuration › Growther C5** are locked;
 **Recommended** values are defaults the user may change. The values land in
 `HKLM\SOFTWARE\Policies\Growther\C5`.
 
 ### macOS: Jamf or Intune
 
 Deploy a configuration profile for the preference domain `ai.growther.c5`. Top-level
-keys are locked; keys inside a `Recommended` dictionary are defaults. A sample profile,
-`ai.growther.c5.mobileconfig`, is in the same folder.
+keys are locked; keys inside a `Recommended` dictionary are defaults. Use the
+`ai.growther.c5.mobileconfig` written above as your starting point.
 
 ### Linux
 
 Drop one or more YAML files in `/etc/growther/policy.d/`. They are merged in name order
-and use the same document shape as a signed policy file.
+and use the same document shape as a signed policy file. Start from
+`samples/policy.d/10-baseline.yaml`.
+
+That directory is **root-owned on purpose**, and so is the signing keyring
+(`/etc/growther/policy-keys` on Linux, `%ProgramData%\Growther\C5\policy-keys` on Windows,
+`/Library/Application Support/Growther/policy-keys` on macOS). C5 never reads policy from the
+user's home folder: if it did, the person the policy governs could write one. The templates
+in `<home>/enterprise` are copies to export — nothing there influences what C5 believes.
 
 ### A signed policy file (any platform)
 

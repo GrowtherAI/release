@@ -14,7 +14,7 @@ different jobs.
 ## Adding a provider
 
 1. Go to **Settings**.
-2. Open the **LLMs** tab.
+2. Open the **Integrations** tab.
 3. Pick the provider you want.
 4. Paste in your API key.
 5. Click **Save**.
@@ -54,7 +54,7 @@ You can run models locally with no outside service at all. This means:
 The trade-off is that local models are usually less capable than the best paid ones, and
 they need a reasonably powerful computer.
 
-To connect one, choose the local option under **LLMs** and point C5 at where your local
+To connect one, choose the local option under **Integrations** and point C5 at where your local
 model is running. C5 checks the connection and lists the models it finds.
 
 ## Gateways
@@ -74,7 +74,7 @@ The usual causes:
 - **The provider is down.** Check their status page.
 - **You hit a rate limit.** C5 slows down and retries by itself.
 
-To re-check a provider, open **Settings → LLMs** and save it again. C5 tests the
+To re-check a provider, open **Settings → Integrations** and save it again. C5 tests the
 key as you save and tells you straight away if it does not work.
 
 ## Where to go next

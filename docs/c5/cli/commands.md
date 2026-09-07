@@ -48,6 +48,15 @@ activate.
 | `growther verify`  | Prove a file really came from us. Works offline.                 |
 | `growther uninstall`| Remove C5 from your computer.                                   |
 | `growther version`  | Print which version you have.                                   |
+| `growther login`    | Sign in from the command line, for a machine with no browser.   |
+| `growther secrets`  | Move API keys into a keystore, and check what is stored where.  |
+| `growther key`      | Escrow, reseal or disable the device key. See below.            |
+| `growther restore`  | Restore from an encrypted backup.                               |
+| `growther evidence` | Export audit evidence for an auditor or a legal hold.           |
+| `growther cache`    | Show the caches, or move them to another disk. See below.       |
+| `growther reset-auth` | Clear a user's sign-in credentials so they can enrol again.   |
+| `growther voice`    | Manage the offline speech model.                                |
+| `growther qmd-mcp`  | Run the memory-search engine as an MCP server.                  |
 | `growther help`     | Show the list of commands.                                      |
 
 ## Commands in detail
@@ -119,8 +128,11 @@ full story.
 ```bash
 growther update            # update now
 growther update --check    # only check, do not install
-growther update --restart  # update, then restart the service
 ```
+
+C5 restarts itself after an update by default. To stop it doing so — an operator who
+manages the restart themselves, or a maintenance window — set `GROWTHER_UPDATE_RESTART=0`
+in the environment C5 runs under. There is no `--restart` flag.
 
 ### `growther rollback`
 
@@ -200,6 +212,7 @@ growther policy sign policy.yaml --key ./policy-keys/policy-signing.key
 sudo growther policy pin ./policy-keys/policy-signing.pub
 growther policy expect                                # mark this install as managed
 growther policy reload                                # re-read the policy now
+growther policy templates --out ./c5-mdm               # the ADMX, profile, schema and samples
 ```
 
 ### `growther user`
@@ -301,6 +314,60 @@ If you are writing a script, the exit codes are `0` verified, `1` failed or alte
 `2` could not be checked.
 
 See [Verifying releases](/c5/security/verifying-releases) for the whole trust story.
+
+### `growther key`
+
+The device key that encrypts your databases: where it is kept, and how to make it
+recoverable. See [Secrets and keys](/c5/security/secrets-and-keys).
+
+```bash
+growther key status                          # custody mode, fingerprint, escrow state
+growther key escrow keygen --out ./kek       # run this OFF the C5 machine
+growther key escrow enable ./kek/kek.pub     # seal the key set, then verify it
+growther key escrow rotate ./next-kek.pub    # roll to a new key without a flag day
+growther key escrow reseal                   # after a device-key change
+growther key wrap                            # move the key into the OS keystore
+growther key unwrap                          # move it back to a file
+growther key recover --escrow key-escrow.blob --private-key ./kek/kek.pem
+```
+
+`wrap` needs a verified escrow and will refuse without one — wrapping makes the OS
+keystore a boot dependency, and escrow is the only way back from a destroyed keystore
+entry.
+
+### `growther cache`
+
+The downloaded models and caches, which are usually what filled your disk. Deleting them
+is safe; C5 fetches them again if it needs them.
+
+```bash
+growther cache show                              # where qmd/, speech/, cache/ and lib/ live, and their size
+growther cache relocate --to /Volumes/Big/c5     # move all four to another local disk
+```
+
+C5 must be stopped to relocate, and the new location is recorded so it survives restarts.
+
+### `growther secrets` and `growther restore`
+
+```bash
+growther secrets status                # what is stored where, and what is still in the clear
+growther secrets migrate               # move API keys out of the config file into a keystore
+growther restore --from <backup>       # restore from an encrypted backup
+```
+
+### `growther evidence`
+
+Export the audit record for an auditor or a legal hold. See
+[Audit trail](/c5/security/audit-trail).
+
+### `growther login` and `growther reset-auth`
+
+```bash
+growther login                 # sign in from the command line, for a host with no browser
+growther reset-auth <user>     # clear a user's credentials so they can enrol again
+```
+
+`reset-auth` is the way back in when somebody has lost the device holding their passkey.
 
 ### `growther uninstall`
 
