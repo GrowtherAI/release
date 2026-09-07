@@ -25,7 +25,7 @@ loop that keeps its own exception:
 | Licence refresh | No refresh, no key rotation. Your licence runs on its offline grace period |
 | Platform check-in | No check-in |
 | Flywheel sync | No catalogue pull, no artefact upload |
-| Update check | No version manifest fetch. `growther update` still works from a file |
+| Background update check | Stopped. `growther update` run by hand still contacts the platform — the posture does not gate a command you typed |
 | QMD model pull | No embedding, reranker or query-expansion downloads |
 | Speech model pull | No offline speech model download |
 | Error reports | Nothing is sent |
@@ -34,6 +34,13 @@ Offline is a posture, not a firewall rule: C5 refuses to start the connection
 itself, so it holds even where the network would have allowed it. A loop that
 skips writes one line an hour at most, so you can see the posture being honoured
 without the log filling with it.
+
+**What it does not cover.** Offline governs the loops C5 runs on its own
+schedule — the table above. It does not stop traffic *you* have configured: a
+cloud model provider still answers an agent's request, and a web-search tool
+still reaches its endpoint, because those happen because someone asked for them.
+Restrict those separately with the provider allow-list and the guardrail domain
+allow-list.
 
 Two details worth knowing:
 
@@ -58,8 +65,19 @@ control is frozen.
 
 Loopback always bypasses the proxy, whether or not you list it.
 
-All four take effect **at restart**, not immediately — they are read once when
-the outbound stack is built.
+**These four are delivered, not typed.** In a shipped build the Network card is
+read-only: set them through Group Policy, macOS managed preferences or
+`/etc/growther`, or through the launcher environment / `c5.yaml` as
+`GROWTHER_PROXY_URL`, `GROWTHER_NO_PROXY`, `GROWTHER_CA_BUNDLE` and
+`GROWTHER_MOTHERSHIP_TLS_PIN`. The card is where you confirm what arrived.
+
+A change to any of the four is picked up by a running C5 **within about 30
+seconds**: the outbound stack is rebuilt in place, with no restart. Connections
+already open finish on the settings they started with.
+
+(The key registry marks these `applies: restart`, which is why you may see a
+restart hint in the console. The runtime re-reads them; the metadata is
+conservative.)
 
 These four are **L1-only keys**: they can be set by Group Policy, macOS managed
 preferences or `/etc/growther`, but never by a signed policy document from a
@@ -70,14 +88,14 @@ the next document.
 ### Behind a TLS-inspecting proxy
 
 If your proxy re-signs TLS, C5 will not trust it until you give it the
-authority:
+authority. Deliver both values the same way you deliver the rest of your policy:
 
-1. Export your proxy's root CA as PEM.
-2. Point `caBundlePath` at it.
-3. Turn **Certificate pinning** off — the pin exists to detect exactly what
-   your proxy is doing, so it must be a deliberate decision rather than a
-   silent failure.
-4. Restart C5.
+1. Export your proxy's root CA as PEM and put it somewhere every device can read.
+2. Set `caBundlePath` to that path.
+3. Set `mothershipTlsPin` to `off` — the pin exists to detect exactly what your
+   proxy is doing, so switching it off must be a deliberate, recorded decision
+   rather than a silent failure.
+4. Wait about 30 seconds, or restart C5 if you would rather not wait.
 
 Turning pinning off is the one step here that removes a protection. Leave it
 `on` unless you are actually behind an inspecting proxy.
@@ -123,9 +141,11 @@ explicitly, and say which names you will serve.
 Three things to get right together, or sign-in breaks in a way that is hard to
 read:
 
-- **Host checking is only enforced while bound to loopback.** Once you bind to
-  a real interface, `GROWTHER_ALLOWED_HOSTS` is how you say which names are
-  yours.
+- **Binding to a real interface turns the host check off unless you turn it back
+  on.** Bound to loopback, only loopback host names are accepted. Bound to
+  `0.0.0.0`, setting `GROWTHER_ALLOWED_HOSTS` enables the check for exactly the
+  names you list — and leaving it unset is an explicit opt-in to answering any
+  `Host` header at all. Set it.
 - **WebAuthn origin checking is exact.** A passkey collected on
   `https://c5.corp.example` is refused at `https://c5.corp.example:8443`. If
   you serve C5 under a real name, set `GROWTHER_WEBAUTHN_ORIGINS` to match

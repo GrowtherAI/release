@@ -16,13 +16,12 @@ You do not need to change most of these. C5 works sensibly out of the box.
 | Area              | What it controls                                             |
 | ----------------- | ------------------------------------------------------------- |
 | **General**       | Basic behavior and appearance.                                |
-| **Integrations**  | Which AI models and services you use, and their keys.         |
+| **Integrations**  | Model providers, third-party services and their keys.         |
 | **Autonomy**      | How much your agents may do without asking you.               |
 | **Guardrails**    | Hard limits agents cannot cross.                              |
 | **Budget**        | Spending caps and warnings.                                   |
 | **Tools**         | Which tools exist and how each one is allowed to be used.     |
-| **Extensions**    | Optional capabilities, each switchable on, prompt, or off.    |
-| **Integrations**  | Connections to other services and MCP servers.                |
+| **Extensions**    | Optional capabilities and MCP servers, each on, prompt, or off. |
 | **Access**        | Who can use this C5 and what they may do.                     |
 | **Alerts**        | When and how C5 tells you something happened.                 |
 | **Communications**| How C5 reaches you — email and other channels.                |

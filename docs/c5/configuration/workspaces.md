@@ -28,7 +28,6 @@ Each one keeps its own:
 - Assigned agents
 - Visibility — who in your organisation can see it
 - An owner
-- A signing identity, so work delivered from it can be verified
 
 Budgets, model choices and folder access are **not** per-workspace: they are set once for
 your whole install under **Settings**, and apply to every workspace.
@@ -41,8 +40,7 @@ different desk — the same tools, a different set of papers.
 1. Go to **Workspaces**.
 2. Click **New workspace**.
 3. Give it a name that will still make sense in six months.
-4. Set its budget and folder access.
-5. Save.
+4. Save.
 
 Switch between them from the workspace menu.
 
@@ -60,20 +58,23 @@ This matters when you deliver work to a client who needs to trust where it came 
 
 ## How signing works
 
-You do not sign anything by hand. A deliverable is signed **when it is produced**, with the
-workspace's identity, so everything your agents finish carries its provenance already.
+You do not sign anything by hand. A deliverable is signed **when it is produced**, and the
+workspace it came from is recorded inside the signature, so everything your agents finish
+carries its provenance already. The signing secret is one per install, not one per
+workspace — the workspace is named in the token, it does not hold a key of its own.
 
 What the Library gives you is the other half — **Validate**, which checks a file against its
 signature and tells you whether it is intact and where it came from. Use it on something you
 have received, or to re-confirm your own work before you send it.
 
-Whoever receives a signed deliverable can verify it without needing access to your C5.
+Verification is done by this C5 — yours, or one you have given someone access to. There is
+no public key to hand out yet, so a third party cannot verify a deliverable independently.
 
 ## Keeping workspaces tidy
 
 - **Name them clearly.** "Acme Corp" beats "Work 2".
-- **Give each its own budget** so one client's spending never eats another's.
-- **Set folder access narrowly** so work cannot stray across the line.
+- **Budgets and folder access are install-wide**, not per workspace — set them
+  once under **Settings › Budget** and **Settings › Locations**.
 - **Archive** finished client workspaces instead of deleting them, so the record
   survives.
 

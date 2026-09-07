@@ -153,8 +153,9 @@ and frees their seat.
 > last enabled administrator leaves the admin group, or is removed from the directory, C5
 > disables them like anyone else. The "you cannot lock yourself out" protection elsewhere on
 > this page guards the in-app controls, not the directory. Keep a break-glass administrator
-> outside the synced group, and check the administrator count in `growther doctor` after any
-> change to your group mapping.
+> outside the synced group, and check **Settings › Access** after any change to your group
+> mapping. If it has already happened, recover from the device with
+> `growther user bootstrap-admin --name "<name>" --force`.
 
 Using both against one tenant is refused: the two channels describe the same person with
 different identifiers, and C5 stops rather than silently creating two accounts and burning
@@ -197,6 +198,6 @@ before you plan around it:
 - **SAML follows the name too.** C5's assertion consumer address is built from the same
   origin list the passkey name change writes, so setting a corporate name moves it from
   `http://localhost:<port>/api/v1/auth/saml/acs` to `https://<your name>/api/v1/auth/saml/acs`.
-  Check the address C5 will register with `growther policy show` or the Identity card before
-  you hand it to your provider, and re-register it there if you change the name later — the
-  provider posts to whatever address it has on file.
+  Check the address C5 will register on the Identity card under **Settings › Enterprise**
+  (or `GET /api/v1/auth/saml/status`) before you hand it to your provider, and re-register it
+  there if you change the name later — the provider posts to whatever address it has on file.
