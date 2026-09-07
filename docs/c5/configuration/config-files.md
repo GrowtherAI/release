@@ -22,9 +22,12 @@ settings in a single file on your computer:
 The file is organized into clear sections:
 
 - **Core & System Settings** — Your license key seed and port. The home directory is **not**
-  one of them: C5 ignores `GROWTHER_HOME` in `c5.yaml` and says so, because the home has to be
-  known before this file can be found. It is resolved from the launcher environment and
-  `home.json` — see [Where your data lives](/c5/configuration/data-location).
+  one of them: as a *setting*, `GROWTHER_HOME` in `c5.yaml` is ignored and C5 says so, because
+  the home has to be known before this file can be found. It is resolved from the launcher
+  environment and `home.json` instead. (One exception: a legacy `GROWTHER_HOME:` line in the
+  *default* home's `c5.yaml` is still honoured once at boot and migrated into `home.json`.)
+  Confirm what your install actually uses with `growther home show` — see
+  [Where your data lives](/c5/configuration/data-location).
 - **API & MCP Services** — Search tokens (Brave), GitHub access tokens, and chat integrations.
 - **LLM Coordinators & Agent Platforms** — Base URLs and keys for local model runners like LM Studio, Ollama, and llama.cpp.
 - **Cloud LLM Providers** — API keys for Anthropic, OpenAI, Google Gemini, AWS Bedrock, and others.

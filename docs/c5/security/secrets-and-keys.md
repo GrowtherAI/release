@@ -127,6 +127,10 @@ a reference instead of a value, anywhere a key is accepted:
 | `ref:env:NAME` | The launcher environment | A supervisor or container runtime injects the value |
 | `ref:file:/absolute/path` | A file, read at use time | A headless host with secrets mounted on disk |
 
+The file must be **owner-only** on macOS and Linux — mode `0600` or narrower, or C5 refuses
+to read it. On Kubernetes set `defaultMode: 0400` on the projected volume, which a default
+mount does not do. Windows uses the ACL and is not mode-checked.
+
 Both are read when the secret is needed, not cached at boot, so rotating the underlying value
 takes effect without restarting C5. `ref:env:` reads the environment C5 was **launched** with
 — not `c5.yaml` — so a value in the config file cannot impersonate one your supervisor set.
