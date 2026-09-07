@@ -101,6 +101,36 @@ private key it is meaningless, so it belongs in your normal backup rotation.
 Keep the private key where your organisation keeps root secrets. It is the only way back
 in after a machine is wiped.
 
+Three things to know for the life of that key:
+
+```bash
+growther key escrow rotate <next-kek.pub>   # re-seal under a new key; the old one still
+                                            # opens the blob for one window, so a fleet can
+                                            # roll over without a flag day
+growther key escrow reseal                  # re-seal under the pinned key — do this after a
+                                            # device-key change, and to close a rotation window
+growther key escrow disable                 # remove the blob entirely
+```
+
+`escrow disable` is **refused while the device key is in a keystore**, because that
+combination is the one with no way back: the blob is the only copy that survives a destroyed
+keystore entry.
+
+## Pointing at a secret you already manage
+
+If your organisation already delivers secrets to the machine — a Kubernetes projected volume,
+a systemd credential, a CI runner's environment — you do not have to copy them into C5. Write
+a reference instead of a value, anywhere a key is accepted:
+
+| Form | Reads from | Use it when |
+| --- | --- | --- |
+| `ref:env:NAME` | The launcher environment | A supervisor or container runtime injects the value |
+| `ref:file:/absolute/path` | A file, read at use time | A headless host with secrets mounted on disk |
+
+Both are read when the secret is needed, not cached at boot, so rotating the underlying value
+takes effect without restarting C5. `ref:env:` reads the environment C5 was **launched** with
+— not `c5.yaml` — so a value in the config file cannot impersonate one your supervisor set.
+
 ## Then, if you want, wrap the device key itself
 
 With escrow verified, C5 can move the device key out of its file and into the keystore:
@@ -116,6 +146,17 @@ C5 refuses to wrap the key while escrow is missing or out of date. That refusal 
 deliberate. On Entra-joined Windows machines the keystore blob is tied to the user's
 password key: a forced password reset, an Intune "remove user", or a rebuilt profile
 destroys it. Escrow is what makes that recoverable rather than fatal.
+
+**Wrapping makes the OS keystore a boot dependency.** Once the device key lives in the
+keystore, C5 cannot open its databases without it — so if the keystore is unavailable or the
+entry is gone, C5 refuses to start rather than starting into an unreadable state. It exits
+with its own code and says which of the two it is. Recover with:
+
+```bash
+growther key recover --escrow key-escrow.blob --private-key <kek.pem>
+```
+
+That is what the escrow is for, and why C5 will not let you wrap without one.
 
 ## Recover a rebuilt machine
 

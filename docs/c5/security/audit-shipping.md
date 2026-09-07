@@ -19,7 +19,7 @@ Set it up under **Settings › Enterprise › Audit shipping**.
 | OpenTelemetry (OTLP over HTTP) | The collector endpoint |
 | Microsoft Sentinel / Azure Monitor | The ingestion endpoint, the rule id and the stream name |
 | Splunk | The HTTP Event Collector URL, plus the index and sourcetype you want |
-| Syslog | Host and port, TLS optional. Records are written in CEF |
+| Syslog | A `tls://host:port` collector. Plain `tcp://` is accepted only to a loopback forwarder on this machine, where the cleartext hop never reaches a wire. Records are written in CEF |
 
 The token or key is a keystore reference, never a value typed into a settings field. Store
 it first under **Secrets custody**, then point the sink at it. See

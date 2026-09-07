@@ -32,8 +32,19 @@ For those, you need a copy somewhere else.
 
 ## Backing up
 
-Everything is in one folder — by default `~/.growther`. Copy that folder and you have
-copied your entire C5.
+On macOS and Linux everything is in one folder — by default `~/.growther`. Copy that folder
+and you have copied your entire C5.
+
+**On Windows it is two folders.** Every install created since C5 2026.9 keeps your settings
+under `%USERPROFILE%\.growther` but puts the databases and the keys under
+`%LOCALAPPDATA%\Growther\C5`, deliberately: `%LOCALAPPDATA%` never travels with a roaming
+profile, so signing in on another machine cannot carry an encrypted database away from the key
+that opens it. Copying only `.growther` would back up your settings and none of your work —
+and none of the key needed to read it.
+
+Run `growther home show` and back up **every path it prints**. That is the reliable answer on
+any platform, because it reports where your install actually keeps things rather than where
+the default would be.
 
 The simplest approach is to include it in whatever backup you already run. Time Machine,
 a cloud backup service, or a copy to an external drive all work.

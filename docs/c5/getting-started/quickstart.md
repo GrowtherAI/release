@@ -25,7 +25,7 @@ C5 needs a **model** to think with. A model is the AI brain behind your agents. 
 not lock you into one — you choose.
 
 1. Go to **Settings**.
-2. Open the **LLMs** tab.
+2. Open the **Integrations** tab.
 3. Pick a provider and paste in your API key.
 4. Click **Save**.
 

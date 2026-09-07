@@ -134,12 +134,15 @@ name. You still need to:
 
 - point the name at the machine, and terminate TLS in front of C5;
 - set the bind address and the allowed host names — see
-  [Managed configuration](/c5/configuration/enterprise-policy);
+  [Network and egress](/c5/configuration/network);
 - tell each person the new address.
 
-And one thing does not follow the name at all: **SAML**. C5 registers
-`http://localhost:<port>/api/v1/auth/saml/acs` as the address its assertions come back to, and
-changing the passkey name does not change it. OpenID Connect and LDAP are unaffected.
+**SAML follows the name, and your provider needs telling.** The address assertions come
+back to is built from the same origin list this rename writes, so it becomes
+`https://<your name>/api/v1/auth/saml/acs` — it does not stay on localhost. That is what you
+want, but it is a change your identity provider does not learn about on its own: update the
+assertion consumer service URL in the provider's application config to match, or every SAML
+sign-in fails after the rename. OpenID Connect and LDAP are unaffected.
 
 ## Next steps
 

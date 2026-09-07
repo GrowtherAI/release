@@ -42,8 +42,10 @@ dashboards.
 ## If activation fails
 
 **"Cannot reach the activation service"**
-A network or firewall problem. C5 needs to reach `api.growther.ai` for this step. It
-keeps working offline — you just cannot activate until it can connect.
+A network or firewall problem. Activation goes to `license.growther.ai`, which is a
+different host from the platform's `api.growther.ai` — allow both. C5 keeps working
+offline; you just cannot activate until it can connect. See
+[Network and egress](/c5/configuration/network) for the full host list.
 
 **"Code expired"**
 Codes are short-lived on purpose. Run `growther activate` again for a fresh one.

@@ -136,9 +136,16 @@ A large export can take a few seconds. The button says so while it works, and te
 fails rather than quietly doing nothing.
 
 > **Note**
-> Export is how you keep records longer than your retention setting. Once a day has aged out
-> it is gone from both copies, and every backup taken from that night onwards was made after
-> the tidy-up — so restoring one does not bring it back.
+> Export is how you keep a copy of records longer than your retention setting. Once a day has
+> aged out it is gone from both copies, and every backup taken from that night onwards was
+> made after the tidy-up — so restoring one does not bring it back.
+
+**Under a preservation obligation, use legal hold instead of exporting.** An administrator can
+turn on **Legal hold**, which suspends audit pruning entirely: nothing ages out for as long as
+it is on, so the record stays complete and in place rather than depending on somebody having
+remembered to export the right days. It is a lockable policy key, so your organisation can set
+it centrally and stop it being turned off on the device. `growther doctor` reports whether a
+hold is active, and `growther evidence` exports the held record for an auditor.
 
 ## What this is not
 
@@ -146,8 +153,12 @@ fails rather than quietly doing nothing.
   [Backups & recovery](/c5/security/backups).
 - **It is not a permission control.** It records decisions; it does not make them. See
   [Permissions](/c5/security/permissions).
-- **It does not leave your machine.** Nothing here is sent anywhere. Exporting is something
-  you do deliberately.
+- **It does not leave your machine unless you send it.** Nothing is shipped by default.
+  An administrator can configure a destination — OpenTelemetry, Microsoft Sentinel, Splunk
+  HEC or syslog — under **Settings › Enterprise › Audit**, and from then on every sealed
+  entry is spooled and delivered there. A remote syslog collector must be `tls://`; plain
+  `tcp://` is accepted only to a loopback forwarder on this machine. See
+  [Shipping audit events](/c5/security/audit-shipping).
 
 ## Where to go next
 

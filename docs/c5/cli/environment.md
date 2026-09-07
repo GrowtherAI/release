@@ -84,11 +84,17 @@ Everything C5 knows lives in `GROWTHER_HOME` (by default `~/.growther`):
 - Your settings and API keys — see [Config files](/c5/configuration/config-files)
 - Backups
 
-The databases are encrypted, and your key file lives in this same folder — so a copy of
-the folder is a copy of everything, key included. See
+The databases are encrypted, and on macOS and Linux the key file lives in this same folder
+— so a copy of the folder is a copy of everything, key included. See
 [Local encryption](/c5/security/encryption) before you back it up anywhere shared.
 
-Backing up this one folder backs up your entire C5 setup.
+**On Windows it is two folders.** Every install created since C5 2026.9 keeps configuration
+under `%USERPROFILE%\.growther` and puts the databases and keys under
+`%LOCALAPPDATA%\Growther\C5`, because `%LOCALAPPDATA%` does not travel with a roaming
+profile — an encrypted database must never be carried to a machine without its key.
+
+Run `growther home show` to see every path your install actually uses, and back up all of
+them. See [Where your data lives](/c5/configuration/data-location) for the full layout.
 
 ## Locations are decided once
 

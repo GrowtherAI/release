@@ -31,6 +31,18 @@ You need the `.msi` or the `.pkg` for the version you are deploying. Both are bu
 by the same release that produces the ordinary downloads. If they are not listed with the
 downloads for your version, ask us for them.
 
+**Check the machine shape first.** C5 **refuses to start on a multi-session host** — RDS,
+Citrix, Azure Virtual Desktop, or any shared multi-user box where several people are signed in
+at once. It exits with code **4** before it takes the instance lock and before it opens any
+database. The reason is the loopback trust boundary: on a shared session host, "a request from
+localhost" no longer means "a request from this user", so every local trust decision C5 makes
+would be wrong for everybody but the first person to sign in.
+
+There is no way to make this safe by configuration, so the acknowledgement is deliberately
+awkward: set the `GROWTHER_MULTI_SESSION_HOST` policy key to `acknowledged`, and only with a
+compensating control that separates users some other way. Deploying to a session-host pool
+without reading this produces a fleet where every install exits 4 at first launch.
+
 Decide two things first:
 
 1. **Do you push a policy?** Settings your organisation locks — the folder locations, the
@@ -159,10 +171,14 @@ On a deployed machine:
 growther doctor --json
 ```
 
-The report names *Managed install* with the marker and who set it, whether a policy is expected
-and whether one arrived, and how many administrators exist. `growther doctor --json` also writes
-`doctor-status.json` into the C5 folder, which is what an Intune detection script or a Jamf
-extension attribute should read.
+The report's *Managed install* section carries three things: whether a policy is **expected**,
+the **path** of the marker that says so, and how many administrators exist. It does not record
+who set the marker, and it is not where you find out whether a policy actually arrived — for
+that, read the *Egress posture*, *Network posture* and *Served origin* checks, or run
+`growther policy show`, which reports the source, signature and every locked key.
+
+`growther doctor --json` also writes `doctor-status.json` into the C5 folder, which is what an
+Intune detection script or a Jamf extension attribute should read.
 
 On a managed install the anonymous first-user setup is off, so create the first administrator
 from the device or let the first sign-in through your identity provider create one:

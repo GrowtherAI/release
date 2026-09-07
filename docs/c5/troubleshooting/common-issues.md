@@ -92,7 +92,7 @@ directly. If you changed the port, use that number instead.
 
 ### "No model configured"
 
-You have not connected a provider yet. Go to **Settings → LLMs** and add one. See
+You have not connected a provider yet. Go to **Settings → Integrations** and add one. See
 [Model providers](/c5/configuration/model-providers).
 
 ### "Invalid API key"
@@ -155,8 +155,21 @@ may be overloaded — try running fewer agents. See [Your agent fleet](/c5/agent
 
 ### Running out of disk space
 
-Open **Monitor → Database** to see what is using room. Shortening how long history is
-kept is the biggest lever. See [Backups and recovery](/c5/security/backups).
+**Open Monitor → Database only if you suspect the databases.** They are usually not what
+filled the disk. The bulk is almost always downloaded models and caches, which live outside
+the databases entirely and are safe to delete — C5 downloads them again if it needs them:
+
+| Folder | Typically |
+| --- | --- |
+| `qmd/` | The memory-search runtime plus its model weights — often 2 GB or more |
+| `speech/` | The offline speech model, about 60 MB |
+| `cache/` | Working files |
+| `lib/` | Unpacked runtime libraries |
+
+`growther cache show` reports what each is using, and `growther cache relocate --to <path>`
+moves them all to another disk without touching your work. If the databases really are the
+problem, shortening how long history is kept is the biggest lever — see
+[Backups and recovery](/c5/security/backups).
 
 ## Costs
 

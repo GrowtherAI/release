@@ -34,8 +34,11 @@ carry an encrypted database away from the key that opens it.
 
 Open **Settings › Storage › Configuration & Data**. The card shows:
 
-- **Source**: whether this device chose the location (Local), or your organisation did
-  (Managed by your organization).
+- **Source**: whether this device chose the location (**Local**) or your organisation
+  did (**Managed by your organization**). The Local tile also carries a badge naming how
+  the location was decided — Default, Pointer, Environment or Policy. A policy that names
+  only the databases or the key set, and leaves the rest of the home to this device,
+  still counts as managed: the card says which parts your organisation set.
 - **Where things live**: one row per kind of file, with the path, a badge that says
   whether it is on this device, on a network folder, or in a synced folder, and a dot
   that goes amber when something is not where it should be.
@@ -59,9 +62,11 @@ Both run the same procedure:
    protected folder, and have room for one and a half times your current data.
 2. **Review the plan**: what moves, what stays, and what you can prune (old encrypted
    backup copies can add up to gigabytes).
-3. **Confirm**: type `move`. C5 stops, copies everything with a verified checkpoint of
-   every database, checks each copy against your key before anything is switched, then
-   restarts from the new folder.
+3. **Confirm**. In Settings, type `move`. At the command line, answer `y` — or pass
+   `--yes`, which is required if you are scripting it, because C5 refuses to schedule a
+   relocation from a non-interactive shell without it. C5 then stops, copies everything
+   with a verified checkpoint of every database, checks each copy against your key before
+   anything is switched, and restarts from the new folder.
 
 The old folder is kept as a retired copy with its secrets shredded, so you can **Roll
 back** from the card at any time until you choose **Remove retired copy**.
@@ -73,13 +78,44 @@ growther home show
 growther home probe /Volumes/Work/growther
 ```
 
+`probe` answers for the use you have in mind, and the answers differ — a share that is
+refused for the databases is perfectly fine for backups:
+
+```bash
+growther home probe /Volumes/Work/growther --intent=home           # the default
+growther home probe //fileserver/c5 --intent=backup
+growther home probe //fileserver/c5 --intent=networkConfig
+growther home probe /Volumes/Work/growther --intent=location
+```
+
+The move itself takes options worth knowing before you run it:
+
+| Option | What it does |
+| --- | --- |
+| `--dry-run` | Print the plan and stop. Nothing is scheduled |
+| `--yes` | Skip the confirmation. **Required** when stdin is not a terminal |
+| `--include-imports` | Carry the imports folder across as well |
+| `--include-backups` | Carry existing encrypted backups across (often the bulk of the size) |
+| `--prune-baks` | Drop `.bak` files rather than copying them |
+| `--prune-old` | Drop the older generations of rotated files |
+| `--prune-env` | Drop the recorded environment snapshots |
+
 C5 refuses a folder that already holds a file the move would replace, and names the
 files. Pick an empty folder, or move those aside first. Merging into a folder that
 already holds unrelated subfolders is fine.
 
 If a move or a roll back is interrupted — the machine loses power part way through, or
-a rename fails — the next start picks it up where it stopped. Nothing needs repairing
-by hand. To abandon one instead, run `growther home cancel`.
+a rename fails — the next start deals with it, and your data is never left half-moved.
+What it does depends on how far the job got:
+
+- **Interrupted while copying or verifying**, which is most of the elapsed time: C5
+  discards the partial copy and starts normally from the old folder. Run the move again.
+  It does not resume, because the old folder may have been written to since.
+- **Interrupted after the switch**: the next start finishes the job.
+
+Either way nothing needs repairing by hand. To abandon a job instead of letting the next
+start deal with it, run `growther home cancel` — or `growther home cancel --force` for
+one that keeps failing at every start.
 
 ## What C5 refuses, and why
 
@@ -112,9 +148,14 @@ growther lock break --confirm
 ## Backups and network storage
 
 Network storage is welcome for what belongs there: encrypted backups, exported audit
-evidence, and the policy file your organisation may publish. Set the backup folder under
-**Settings › Storage**, or an Azure Blob or S3 target under **Settings › Enterprise ›
-Enterprise storage**.
+evidence, and the policy file your organisation may publish.
+
+The backup folder under **Settings › Storage** is for a folder **on this computer** — it
+must sit inside your home directory, and a UNC or network path is refused there. Anything
+off this machine is set under **Settings › Enterprise › Enterprise storage**, which takes
+a network folder, an Azure Blob container or an S3 bucket. A network folder is accepted
+only if an administrator has first added its parent to the allowed enterprise roots on
+that same screen; with no roots listed, every network target is refused.
 
 ## Check the layout from the command line
 

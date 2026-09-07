@@ -21,7 +21,10 @@ settings in a single file on your computer:
 
 The file is organized into clear sections:
 
-- **Core & System Settings** — Your license key seed, port, and home directory.
+- **Core & System Settings** — Your license key seed and port. The home directory is **not**
+  one of them: C5 ignores `GROWTHER_HOME` in `c5.yaml` and says so, because the home has to be
+  known before this file can be found. It is resolved from the launcher environment and
+  `home.json` — see [Where your data lives](/c5/configuration/data-location).
 - **API & MCP Services** — Search tokens (Brave), GitHub access tokens, and chat integrations.
 - **LLM Coordinators & Agent Platforms** — Base URLs and keys for local model runners like LM Studio, Ollama, and llama.cpp.
 - **Cloud LLM Providers** — API keys for Anthropic, OpenAI, Google Gemini, AWS Bedrock, and others.
@@ -54,7 +57,7 @@ GEMINI_API_KEY: ""
 
 You can update your settings in two ways:
 
-1. **In the web interface** — Go to **Settings › LLMs** or **Settings › Integrations**, paste your key or address, and click **Save**.
+1. **In the web interface** — Go to **Settings › Integrations**, paste your key or address, and click **Save**.
 2. **By editing the file** — Open `~/.growther/config/c5.yaml` in your favorite text editor, make your changes, and save the file.
 
 ### Live updates (Hot reloading)
