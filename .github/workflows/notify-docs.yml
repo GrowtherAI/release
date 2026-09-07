@@ -6,18 +6,25 @@ name: Notify docs site
 # until that build runs again. Its deploy workflow accepts a
 # `repository_dispatch` of type `docs-updated`; this is the thing that sends it.
 #
-# WHY THE PATH FILTER IS THE WHOLE POINT
-# growther-c5's release.yml pushes into this repository on every version, but it
-# stages exactly `dist/c5`, `install.sh`, `install.ps1` and `README.md` — never
-# `docs/`. Filtering on `docs/**` therefore means a release never rebuilds the
-# docs site, and a documentation edit always does. Without the filter every
-# version bump would redeploy the site for no reason.
+# WHY THE FILTER IS NARROW, AND WHY IT IS NOT ONLY docs/
+# The site prerenders TWO things out of this repository: the markdown under
+# `docs/`, and the release catalog `dist/c5/releases.json`, which supplies the
+# version, the download URLs and the SHA-256 checksums baked into the built
+# bundle. Filtering on `docs/**` alone was wrong for exactly that reason — a
+# release updates the catalog and nothing else the site reads, so the site would
+# have kept serving the PREVIOUS version's downloads and checksums until the
+# next unrelated documentation edit happened to rebuild it.
+#
+# Everything else growther-c5's release.yml stages here — the per-version asset
+# folders under `dist/c5/<tag>/`, `install.sh`, `install.ps1`, `README.md` — is
+# not read by the site, so it still cannot cause a pointless redeploy.
 
 on:
   push:
     branches: [main]
     paths:
       - "docs/**"
+      - "dist/c5/releases.json"
   workflow_dispatch: {}
 
 permissions:
