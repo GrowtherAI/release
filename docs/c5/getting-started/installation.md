@@ -115,3 +115,5 @@ See [Common issues](/c5/troubleshooting/common-issues) for more help.
 
 - [Quickstart](/c5/getting-started/quickstart) — run your first task.
 - [Updating C5](/c5/getting-started/updating) — keep C5 current.
+- [Deploying across an organisation](/c5/configuration/deploying) — for IT, the Windows and
+  macOS installer packages.

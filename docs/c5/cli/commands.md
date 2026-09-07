@@ -43,6 +43,7 @@ activate.
 | `growther lock`     | Show or clear the single-instance lock. See below.             |
 | `growther policy`   | Managed configuration for IT: validate, sign, pin. See below.  |
 | `growther user`     | Create the first administrator on a managed install.           |
+| `growther webauthn` | Change the host name passkeys are bound to. See below.         |
 | `growther qmd-run`  | Run the memory-search engine directly. See below.               |
 | `growther verify`  | Prove a file really came from us. Works offline.                 |
 | `growther uninstall`| Remove C5 from your computer.                                   |
@@ -209,6 +210,34 @@ administrator from the device instead:
 ```bash
 growther user bootstrap-admin --name "IT Admin"
 ```
+
+### `growther webauthn`
+
+For reaching a shared C5 by a corporate host name. A passkey is bound to the name it was
+created under, so changing that name is an authentication change, not a settings change. See
+[Reaching C5 by a corporate name](/c5/security/corporate-name).
+
+```bash
+growther webauthn status                                    # what is enrolled, and under which name
+growther webauthn migrate-rpid --to c5.contoso.com          # bind new passkeys to the new name
+growther webauthn migrate-rpid --to contoso.com \
+  --origins https://c5.contoso.com,https://c5-eu.contoso.com
+growther webauthn finish                                    # close the enrolment window
+```
+
+`migrate-rpid` opens a dual-name enrolment window: passkeys already enrolled keep working on
+the old address while people re-enrol on the new one, at their own pace. `finish` closes it,
+and passkeys still on the old name stop working from that point — run it once
+`growther webauthn status` shows nothing left there.
+
+It refuses while the only administrator credential is a passkey, because changing the name
+would then leave nobody able to sign in; enrol a second administrator with a password or PIN,
+or set up single sign-on first. It also refuses a name that is not a registrable suffix of the
+sign-in origins, since the browser would reject every sign-in afterwards. There is no `--force`.
+
+Both changing commands ask for confirmation; `--yes` skips it and `--json` prints a machine
+report. Run them on the machine that hosts C5, as the account that runs C5. The change takes
+effect without a restart.
 
 ### `growther qmd-run`
 
