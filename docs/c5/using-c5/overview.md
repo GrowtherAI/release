@@ -39,6 +39,18 @@ Lower down the menu you will find settings-style areas:
 | **Workspaces** | Group work by team or client, and sign finished work.              |
 | **Settings**   | Model providers, security rules, and how C5 behaves.               |
 
+## The profile menu
+
+In the top-right corner of the app, clicking your avatar opens the profile menu:
+
+| Option       | What it is for                                                                                                                     |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Users**    | Switch between configured user profiles or set up a new user.                                                                      |
+| **Profile**  | Open your profile settings to configure your display name, avatar icon, and authentication credentials (passkey, password, or PIN). |
+| **Lock**     | Invalidate your active session immediately and return to the sign-in card in place, keeping running tasks active while securing your station. |
+| **Sign out** | Sign out of C5 and return to the sign-in card.                                                                                     |
+
+
 ## Overview: your home screen
 
 **Overview** is the first thing you see when you open C5. It answers "what is going on
