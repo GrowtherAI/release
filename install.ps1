@@ -502,9 +502,9 @@ try {
   }
 
   # ── Optional managed startup (auto-start at sign-in + keep-alive) ───────────
-  # Registered through the binary itself (one definition — a per-user Task
-  # Scheduler task with a LogonTrigger + restart-on-failure). No admin required;
-  # a clean quit stays down, only a crash restarts. Activates at next sign-in.
+  # Registered through the binary itself (Windows Startup / per-user Run key +
+  # keep-alive supervisor). No admin required; a clean quit stays down, only a
+  # crash restarts. Activates at next sign-in.
   if ($InstallService) {
     & "$InstallDir\growther.exe" service install | Out-Null
     if ($LASTEXITCODE -eq 0) {
