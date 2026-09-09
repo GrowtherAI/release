@@ -72,7 +72,7 @@ with the install script instead.
 | `MANAGEDBY`      | `Growther.ai C5 MSI` | The name `growther update` gives when it declines to update                                |
 | `POLICYEXPECTED` | `0`                  | Treats a missing policy as a fault, and turns off the anonymous first-user setup           |
 | `NOACTIVATE`     | `0`                  | First run opens no browser                                                                 |
-| `INSTALLSERVICE` | `0`                  | Starts C5 automatically at sign-in (a Task Scheduler task with a logon trigger)            |
+| `INSTALLSERVICE` | `0`                  | Starts C5 automatically at sign-in (Windows Startup registration)                          |
 | `GROWTHERHOME`   | unset                | Records where C5 keeps its files                                                           |
 | `DATADIR`        | unset                | Records where the databases go                                                             |
 
@@ -81,7 +81,7 @@ are Group Policy or Intune values, delivered with `Growther-C5.admx` — the ins
 second place to set the same thing.
 
 `msiexec /x` removes the program, the `PATH` entry and the managed marker. It does not remove
-anyone's data, settings or sign-in task. `growther uninstall`, run by each user, does that.
+anyone's data, settings or auto-start registration. `growther uninstall`, run by each user, does that.
 
 ## macOS: the PKG
 
