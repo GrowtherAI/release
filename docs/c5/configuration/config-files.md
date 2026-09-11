@@ -84,8 +84,24 @@ Your `c5.yaml` file holds sensitive passwords and tokens. C5 saves it with owner
 > Treat `c5.yaml` like a password file. Do not commit it to public version control or paste its contents into public messages.
 > See [Local encryption](/c5/security/encryption).
 
+## The CLI configuration file (cli.yaml)
+
+Along with `c5.yaml`, C5 keeps your terminal log filter preferences in:
+
+```text
+~/.growther/config/cli.yaml
+```
+
+This file remembers which log categories (such as `agents`, `database`, `skills`, or `voice`) you
+have toggled on or off while running the `growther` command.
+
+- When you press a category hotkey in the terminal, C5 updates `cli.yaml` immediately.
+- You can also edit `cli.yaml` in a text editor to choose which logs you want to see before starting C5.
+- See [Log filtering](/c5/cli/log-filtering) for the full guide and list of categories.
+
 ## Where to go next
 
+- [Log filtering](/c5/cli/log-filtering) — live category filtering and CLI hotkeys.
 - [Model providers](/c5/configuration/model-providers) — how to connect cloud and local models.
 - [Settings](/c5/configuration/settings) — a full map of the settings screen.
 - [Guardrails](/c5/security/guardrails) — safety limits and network allowlists.
