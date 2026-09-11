@@ -67,7 +67,8 @@ This pairs your computer with your license. C5 will show you a code and open a p
 where you confirm it. This only happens once per computer.
 
 You need a license first — get one from [growther.ai](https://growther.ai). If you do not
-have one yet, do that before running this step.
+have one yet, do that before running this step. Someone sent you a referral link or
+a discount code? See [Referrals and discount codes](/c5/getting-started/referrals).
 
 ## Start C5
 

@@ -121,10 +121,11 @@ computer to pair it — see [Connecting](/c5/mothership/connecting).
 
 ### I have a referral link or discount code — how do I use it?
 
-Open the link, or enter the code under *Have a referral code?* in the cart on the
-Plans page, while signed in to [license.growther.ai](https://license.growther.ai).
-The cart shows what comes off before you pay. Everything else — time limits, who
-gets what, and how to become a referrer yourself — is on the
+Open the link and sign in when asked, or — if you only have the code — sign in to
+[license.growther.ai](https://license.growther.ai) and enter it under *Have a
+referral code?* in the cart on the Plans page. The cart shows what comes off before
+you pay. Everything else — time limits, who gets what, and how to become a
+referrer yourself — is on the
 [Referrals and discount codes](/c5/getting-started/referrals) page.
 
 ### Why does C5 check in with the license service?
