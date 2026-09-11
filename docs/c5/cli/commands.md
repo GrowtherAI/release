@@ -26,6 +26,15 @@ This starts the C5 server and prints the address it is running on — open that 
 your browser to use the app. The first time you run it, C5 sets itself up and asks you to
 activate.
 
+### Interactive log filtering
+
+When started interactively, C5 displays a startup banner and an interactive log filter. All
+category logs are off by default to keep output quiet. You can press single hotkey letters
+(like `v` for voice or `a` for agents) to toggle logs on and off in real time. Your choices
+are saved automatically to `~/.growther/config/cli.yaml`.
+
+See [Log filtering](/c5/cli/log-filtering) for the full list of hotkeys and configuration options.
+
 ## All commands
 
 | Command             | What it does                                                   |
