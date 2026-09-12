@@ -90,6 +90,30 @@ Open that address in your browser to use the app.
 > Want a different port? Set the `PORT` value before you start:
 > `PORT=5000 growther`
 
+## Start C5 without using the terminal
+
+You do not have to type anything to start C5. Installing it also adds an icon named
+**Growther.ai C5**, and double-clicking that opens a window showing C5 starting up, the
+same as the command does.
+
+| System  | Where the icon is                                                            |
+| ------- | ---------------------------------------------------------------------------- |
+| macOS   | Your **Applications** folder. It also appears in Launchpad and in Spotlight.  |
+| Windows | The **Start menu**. Type "Growther" to find it.                              |
+| Linux   | Your applications menu, if your desktop has one.                             |
+
+The icon and the `growther` command start the **same** C5 — there is only ever one copy
+of the program on your computer, and updates reach both. The icon is only a pointer to it.
+
+A window opens with C5's log in it, which is the same information the command shows. C5 is
+running for as long as that window is open, so **closing the window stops C5**. If you
+would rather it kept running in the background, use "Keep growther running" in Settings.
+
+> **No icon?**
+> It is created the first time C5 runs, so start it once from the terminal with `growther`
+> and it will appear. On Linux it also needs a desktop environment with an applications
+> menu and a terminal program installed; on a server without one, use the command.
+
 ## Supported platforms
 
 | System  | Chips supported            |
