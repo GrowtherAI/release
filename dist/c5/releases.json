@@ -1,0 +1,83 @@
+{
+  "stable": {
+    "version": "2026.9.12-v281",
+    "releasedAt": "2026-09-12T20:42:38.070Z",
+    "commitHash": "4fa1e3802d94d9b20b243802fc944aba6674e71d",
+    "notes": "C5 v2026.9.12-v281",
+    "assets": [
+      {
+        "os": "linux",
+        "arch": "x64",
+        "filename": "growther-node22-linux-x64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.12-v281/growther-node22-linux-x64.tar.gz",
+        "sha256": "ba285732fd5cd57743ca394bde583f720ddede9fc5645bd22b7153a399d1f60e",
+        "sizeBytes": 85909324,
+        "binaryFilename": "growther-c5-linux-x64-v2026.9.12-v281.zip",
+        "binaryEntry": "growther-c5-linux-x64-v2026_9_12-v281",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-linux-x64-v2026.9.12-v281.zip",
+        "binarySha256": "132e2bff825fa6ccc487d6f038ea632131b92631730b19898c8a54178a2b1731",
+        "binarySizeBytes": 85908334
+      },
+      {
+        "os": "macos",
+        "arch": "arm64",
+        "filename": "growther-node22-macos-arm64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.12-v281/growther-node22-macos-arm64.tar.gz",
+        "sha256": "d350de5d4c6b5669f860a7486f895168f6afc7c42cf9c346d6e0ec9f9ac0812c",
+        "sizeBytes": 76666133,
+        "binaryFilename": "growther-c5-macos-arm64-v2026.9.12-v281.zip",
+        "binaryEntry": "growther-c5-macos-arm64-v2026_9_12-v281",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-macos-arm64-v2026.9.12-v281.zip",
+        "binarySha256": "f4b202685cb74b98483199cf84bddf0700d57900b1af1642456225d3a166a8aa",
+        "binarySizeBytes": 76670110,
+        "installerFilename": "growther-c5-2026.9.12-v281-arm64.pkg",
+        "installerUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-2026.9.12-v281-arm64.pkg",
+        "installerSha256": "74dad45af4e40e75d307e193e065973133f8109af9a8f8aefb8b2c39c8484ca7",
+        "installerSizeBytes": 75052192
+      },
+      {
+        "os": "macos",
+        "arch": "x64",
+        "filename": "growther-node22-macos-x64.tar.gz",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.12-v281/growther-node22-macos-x64.tar.gz",
+        "sha256": "4ccbd52adc29eb3e2b65529dc61c3fb20a9c12860eb3dadece790124ba4a4379",
+        "sizeBytes": 84205447,
+        "binaryFilename": "growther-c5-macos-x64-v2026.9.12-v281.zip",
+        "binaryEntry": "growther-c5-macos-x64-v2026_9_12-v281",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-macos-x64-v2026.9.12-v281.zip",
+        "binarySha256": "b52a1b8bbe32aec74105468aed0e915244c38008379c1265d69a4939bd260b7b",
+        "binarySizeBytes": 84203634,
+        "installerFilename": "growther-c5-2026.9.12-v281-x64.pkg",
+        "installerUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-2026.9.12-v281-x64.pkg",
+        "installerSha256": "c6b9812954f38bfe6beb1800297b74fe6e529d43a24cf90def17cf3a81592582",
+        "installerSizeBytes": 82592501
+      },
+      {
+        "os": "win",
+        "arch": "arm64",
+        "filename": "growther-node22-win-arm64.zip",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.12-v281/growther-node22-win-arm64.zip",
+        "sha256": "f74184c31dd5b5e027c19b757852657a622e2784b3ae8e1f02bfcd0fafd84880",
+        "sizeBytes": 71467189,
+        "binaryFilename": "growther-c5-win-arm64-v2026.9.12-v281.zip",
+        "binaryEntry": "growther-c5-win-arm64-v2026.9.12-v281.exe",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-win-arm64-v2026.9.12-v281.zip",
+        "binarySha256": "b2b02a14027ec2f306c41ccf1326d84bc4429e1a539b761ad568c8b654d16c4c",
+        "binarySizeBytes": 71397059
+      },
+      {
+        "os": "win",
+        "arch": "x64",
+        "filename": "growther-node22-win-x64.zip",
+        "url": "https://raw.githubusercontent.com/growtherai/release/main/dist/c5/v2026.9.12-v281/growther-node22-win-x64.zip",
+        "sha256": "fa2ff4ac04b3be7c75194199a27febec0454a8977b446a91e0124ecb6d8cc526",
+        "sizeBytes": 78626864,
+        "binaryFilename": "growther-c5-win-x64-v2026.9.12-v281.zip",
+        "binaryEntry": "growther-c5-win-x64-v2026.9.12-v281.exe",
+        "binaryUrl": "https://github.com/growtherai/release/releases/download/v2026.9.12-v281/growther-c5-win-x64-v2026.9.12-v281.zip",
+        "binarySha256": "5c3fb8fe2d3df7958f6de3d5f54843b70c853475c8ae7eff14edb9362aeca2e1",
+        "binarySizeBytes": 78545977
+      }
+    ]
+  }
+}
