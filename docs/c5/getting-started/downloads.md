@@ -40,6 +40,18 @@ install command above instead — it works this out for you.
 
 <!-- RELEASES -->
 
+**On a Mac, take the `.pkg`.** It is an installer: double-click it, enter your password,
+and C5 sets itself up and starts, with its log in a Terminal window. Make sure you take
+the one for your Mac — `arm64` for Apple silicon, `x64` for an Intel Mac. macOS will not
+install the wrong one, and it says so only quietly, so it can look as though nothing
+happened.
+
+The plain macOS and Linux files are the program itself rather than an installer. They work,
+but you have to run them from a terminal. **Double-clicking one of _those_ in Finder will
+not work** — macOS treats a double-clicked program file as a document and refuses to open
+it, whoever published it. That is not a sign anything is wrong with the download. It does
+not apply to the `.pkg` above, which is built to be double-clicked.
+
 ## Check your download
 
 Every file has a **SHA-256** — a short string calculated from the file's contents. If
@@ -49,10 +61,21 @@ Each build in the table above has a **Copy** button next to its SHA-256. Copy it
 compare it to what your computer calculates. (If no builds are listed yet, there is
 nothing to check here — the install commands verify for you.)
 
-**macOS and Linux**
+**The macOS `.pkg`** checks itself. It is signed and carries Apple's approval inside the
+file, so the Installer verifies it before it will open — even with no internet. You do not
+need to compare anything by hand. To see who signed it:
 
 ```bash
-shasum -a 256 growther-node22-macos-arm64.tar.gz
+pkgutil --check-signature growther-c5-<version>-arm64.pkg
+```
+
+It should say it is signed by a certificate issued by Apple for distribution, and trusted
+by Apple's notary service.
+
+**macOS and Linux** (the plain program file)
+
+```bash
+shasum -a 256 growther-node22-linux-x64.tar.gz
 ```
 
 **Windows** (PowerShell)
