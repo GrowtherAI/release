@@ -133,6 +133,42 @@ Alerts tell you when something needs you. Worth turning on:
 
 Without alerts you will find out when you next open C5, which might be tomorrow.
 
+## Starting, restarting and quitting C5
+
+**Settings → System** carries the two controls that act on the running server,
+and the same pair sits at the bottom of the sidebar **Options** menu (the `⋯`
+button) so you can reach them without leaving what you are doing. Both ask you
+to confirm first — they act on the server everyone on this machine is using.
+
+| Control | What happens |
+| --- | --- |
+| **Restart C5** | C5 finishes its writes, closes its databases and starts fresh. Your browser tab reconnects on its own; you do not need to reload it. |
+| **Quit C5** | C5 shuts down cleanly and stays down. |
+
+Two settings sit beside them and are often confused:
+
+- **Start when I sign in** registers C5 with your operating system, so it is
+  already running the next time you log in.
+- **Restart automatically if it stops unexpectedly** covers crashes only. An
+  intentional quit — this button, `Ctrl+C`, or `growther stop` — is respected
+  and stays stopped. If it resurrected an explicit quit, you could never stop
+  C5 at all.
+
+### When C5 is not running
+
+Both controls grey out, and hovering either one tells you why and what to do:
+
+> C5 is not running. Start it from the "Growther.ai C5" shortcut, or run
+> `growther` in a terminal.
+
+They stay visible rather than disappearing, so the panel does not rearrange
+itself while you are looking at it. Neither can work in this state — they ask
+the server to act, and there is no server — and a web page cannot start a
+program on your computer, so the two things that *can* are named instead.
+
+Nothing needs clicking once C5 is back. The page notices by itself, usually
+within a few seconds, and the controls become available again.
+
 ## Saving changes
 
 Changes save when you click **Save** and apply to new work right away. Work already

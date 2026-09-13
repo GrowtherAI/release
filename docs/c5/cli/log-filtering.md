@@ -44,8 +44,20 @@ Categories that are **ON** show in **green**. Categories that are **OFF** show i
 
 - `*` — **Toggle all categories**: Turns all categories ON if any are off, or turns all categories OFF if all are on.
 - `?` — **Help table**: Shows or hides a 2-column list of all categories and their current states.
-- `Ctrl+R` — **Restart server**: Gracefully reloads C5 in place without closing your terminal window.
-- `Ctrl+C` — **Quit**: Stops C5 cleanly.
+- `Ctrl+R` — **Restart server**: C5 drains — finishing writes, closing its
+  databases, releasing the port — and then starts a fresh C5 in this same
+  window. The banner, this menu and the live log come back where they were, so
+  a restart looks like a reboot of the panel rather than the end of your
+  session. Nothing in your terminal needs restarting, and you do not need to
+  run `growther` again.
+- `Ctrl+C` — **Quit**: Stops C5 cleanly. This is an intentional close, so
+  "Restart automatically if it stops unexpectedly" does **not** bring it back —
+  that setting is for crashes, not for you deciding to stop. If "Start when I
+  sign in" is on, C5 returns at your next sign-in.
+
+When C5 is started by a service rather than by you — a login item, `launchd`,
+`systemd` — there is no terminal to return to, so `Ctrl+R` is not available and
+a restart is requested from **Settings → System** or the sidebar menu instead.
 
 ## Remembering your choices (`cli.yaml`)
 
