@@ -88,6 +88,27 @@ PORT=5000 growther
 Confirm C5 is running with `growther status`, then go to `http://localhost:4299`
 directly. If you changed the port, use that number instead.
 
+If `growther status` says C5 is running but the browser still cannot reach it,
+try `http://127.0.0.1:4299` and `http://[::1]:4299`. `localhost` is two
+addresses, and C5 listens on both — but if one of them was unavailable when C5
+started, the boot log says so:
+
+```text
+[bootstrap] no ::1 listener (EAFNOSUPPORT) — C5 is reachable on 127.0.0.1 only.
+```
+
+Use the address that line names. See
+[Why C5 listens on two addresses](../configuration/network.md).
+
+### Restart and Quit are greyed out
+
+C5 is not running, so there is nothing for those buttons to act on. Start it
+from the "Growther.ai C5" shortcut or by running `growther` in a terminal; the
+page reconnects by itself within a few seconds and the controls come back.
+
+A web page cannot start a program on your computer, which is why there is no
+button here that would do it.
+
 ## Models
 
 ### "No model configured"

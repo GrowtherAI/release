@@ -124,6 +124,39 @@ installer, will use the default.
 Nothing on this list carries your work. The databases, your notes and your
 deliverables never leave the machine.
 
+## Why C5 listens on two addresses
+
+`localhost` is not one address. It is two — `127.0.0.1` on IPv4 and `::1` on
+IPv6 — and which one a program gets depends on how its resolver is configured.
+C5 serves its own address bar name, and passkeys are bound to it, so it listens
+on **both** by default.
+
+You will see both in the boot log:
+
+```text
+[bootstrap] C5 API running on http://localhost:4299
+[bootstrap] C5 API also on http://[::1]:4299
+```
+
+This changes nothing about who can reach C5. Both addresses are loopback, so
+the server is still reachable only from the computer it runs on, and the host
+check, the browser-origin allowlist and the passkey origin rules all behave
+exactly as they did.
+
+If IPv6 is switched off on your machine — some hardened Linux builds and some
+Windows configurations do this — the second listener cannot start. That is not
+a failure and C5 does not stop for it; you get a line naming the reason and the
+address that does work:
+
+```text
+[bootstrap] no ::1 listener (EAFNOSUPPORT) — C5 is reachable on 127.0.0.1 only.
+```
+
+Setting `GROWTHER_BIND_HOST` to a real interface or to `0.0.0.0` is a
+deliberate choice to widen exposure, and C5 does **not** pair those with a
+second address: you asked for one family, and pairing would quietly add the
+other.
+
 ## Making C5 reachable from another machine
 
 By default C5 binds to loopback only: the server is reachable from the computer
