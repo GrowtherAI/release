@@ -14,6 +14,7 @@ set -euo pipefail
 #   GROWTHER_INSTALL_DIR    where the binary goes    (default: ~/.local/bin)
 #   GROWTHER_HOME           data dir                 (default: ~/.growther)
 #   GROWTHER_RELEASE_BASE   release host base URL    (default: growtherai/release raw mirror)
+#   GROWTHER_ARCH           arm64|x64, overriding detection (Rosetta, cross-provisioning)
 #   GROWTHER_INSTALL_SERVICE=1   install a launchd/systemd user service
 #   GROWTHER_NO_MODIFY_PATH=1    don't touch shell rc files
 #
@@ -99,8 +100,8 @@ Options (each has a GROWTHER_* environment equivalent):
                         apply only the options above, download nothing
   -h, --help            this text
 
-Environment: GROWTHER_VERSION, GROWTHER_INSTALL_DIR, GROWTHER_HOME,
-GROWTHER_DATA_DIR, GROWTHER_RELEASE_BASE, GROWTHER_NO_MODIFY_PATH,
+Environment: GROWTHER_VERSION, GROWTHER_ARCH, GROWTHER_INSTALL_DIR,
+GROWTHER_HOME, GROWTHER_DATA_DIR, GROWTHER_RELEASE_BASE, GROWTHER_NO_MODIFY_PATH,
 GROWTHER_POLICY_EXPECTED, GROWTHER_MANAGED_INSTALL, GROWTHER_MANAGED_BY,
 GROWTHER_NO_ACTIVATE, GROWTHER_INSTALL_SERVICE, GROWTHER_PROFILE_ONLY.
 See https://docs.growther.ai/c5/getting-started/installation
@@ -197,6 +198,30 @@ if [ "$PROFILE_ONLY" != "1" ]; then
     arm64|aarch64) ARCH=arm64 ;;
     x86_64|amd64)  ARCH=x64 ;;
     *) die "unsupported architecture: $(uname -m)";;
+  esac
+  # `uname -m` reports the architecture of THIS PROCESS, not of the machine. A
+  # bash translated by Rosetta answers x86_64 on an Apple Silicon Mac, so piping
+  # this script into an Intel-built terminal, an x86_64 container, or an explicit
+  # `arch -x86_64 bash` installs the Intel build on an ARM machine. It runs — every
+  # instruction translated — while the native binary sits beside it in the very
+  # same release, and nothing ever says so. install.ps1 has always handled the
+  # mirror-image case explicitly (PROCESSOR_ARCHITEW6432 catches ARM64 under x64
+  # emulation); this is the macOS half that was missing.
+  #
+  # hw.optional.arm64 describes the HARDWARE, so it stays true even when the
+  # asking process is translated. sysctl.proc_translated is NOT a substitute: a
+  # natively-x86_64 binary exec'd on Apple Silicon reports translated=0 and still
+  # wants the arm64 build. On Linux the OS test short-circuits before sysctl runs.
+  case "${GROWTHER_ARCH:-}" in
+    arm64|x64) ARCH="${GROWTHER_ARCH}" ;;
+    "")
+      if [ "$OS" = macos ] && [ "$ARCH" = x64 ] &&
+        [ "$(sysctl -n hw.optional.arm64 2>/dev/null || echo 0)" = 1 ]; then
+        warn "x86_64 shell on an Apple Silicon Mac — installing the native arm64 build (GROWTHER_ARCH=x64 forces Intel)"
+        ARCH=arm64
+      fi
+      ;;
+    *) die "GROWTHER_ARCH must be arm64 or x64 (got: ${GROWTHER_ARCH})";;
   esac
   ASSET="growther-node22-${OS}-${ARCH}.tar.gz"
   info "target: ${c_b}${OS}-${ARCH}${c_reset} · version: ${c_b}${VERSION}${c_reset}"
