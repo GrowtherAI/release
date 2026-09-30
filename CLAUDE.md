@@ -1,4 +1,4 @@
-# GrowtherAI/release
+# GrowtherSI/release
 
 ## Commit attribution
 
@@ -23,7 +23,7 @@ it too.
 ## What lives here
 
 - `dist/c5/**` — published release artifacts, written by the release workflow.
-- `docs/c5/**` — the user documentation published to docs.growther.ai.
+- `docs/c5/**` — the user documentation published to docs.growther.si.
 - `install.sh` / `install.ps1` — copied in by the release workflow from
   growther-c5. Edit them THERE, not here; a change made here is overwritten on
   the next release.
